@@ -1,0 +1,64 @@
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 myplaceholder">
+            <h5>&nbsp</h5>
+            <img class="img img-responsive profile" ng-src="{{model.biz.bestPhoto.prefix}}500x500{{model.biz.bestPhoto.suffix}}">
+        </div>
+        <div class="col-xs-12 col-sm-8 myplaceholder">
+
+            <h1 class="page-header">{{model.biz.name}}</h1>
+
+            <div class="col-xs-6 col-sm-4">
+                <h2 ng-repeat="category in model.biz.categories | limitTo:2">
+                        <span class="label label-default label-as-badge">
+                            {{category.name}}
+                        </span>
+                </h2>
+
+                <h2 ng-switch="model.biz.hours.isOpen">
+                    <div ng-switch-when="true">Open</div>
+                    <div ng-switch-default>Close</div>
+                </h2>
+
+                <h2>{{model.biz.likes.summary}}</h2>
+            </div>
+
+            <div class="col-xs-6 col-sm-8" ng-repeat="address in model.biz.location.formattedAddress">
+                <h2>{{address}}</h2>
+            </div>
+        </div>
+    </div>
+
+
+    <h4>
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp{{model.biz.description}}
+    </h4>
+    <a href="{{model.biz.canonicalUrl}}" target=_blank> <h3>More in Detail</h3> </a>
+
+    <div class="container-fluid row placeholders">
+        <h2 class="page-header">You might also like</h2>
+        <h4>&nbsp</h4>
+        <div class="col-xs-12 col-sm-6 col-md-4  placeholder" ng-repeat="biz in model.bizs">
+            <div class="thumbnail">
+                <span id="categoryname" class="label label-default pull-right">Category: {{biz.categories[0].name}}</span>
+                <p>&nbsp</p>
+                <div class="caption">
+                    <a ng-click="model.findBizById(biz.id)">
+                        <h4 id="bizname" class="smallheader">{{biz.name| limitTo:25}}...</h4>
+                    </a>
+                </div>
+                <div id = "address" class="embed-responsive embed-responsive-16by9 container-fluid">
+                    <div class="address"><h4>{{biz.location.formattedAddress[0]}}</h4></div>
+                    <div class="address"><h4>{{biz.location.formattedAddress[1]}}</h4></div>
+                    <div class="address"><h4>{{biz.location.formattedAddress[2]}}</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-map center="[{{model.lat}},{{model.lng}}]">
+    <marker position="[{{model.lat}},{{model.lng}}]"> </marker>
+</ng-map>

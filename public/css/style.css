@@ -1,0 +1,24 @@
+body{
+    padding-top: 50px;
+}
+
+#address{
+    text-align: center;
+}
+
+#googleMap{
+    height: 400px;
+    width: 500px;
+}
+
+#bizname{
+    color: crimson;
+}
+
+#categoryname{
+    font-style: oblique;
+    font-family: inherit;
+    color: black;
+    opacity: 0.8;
+    background-color: whitesmoke;
+}
