@@ -39,10 +39,36 @@
 
         }
 
+        function test123(response) {
+            console.log(response);
+        }
+
         function findBizsByLLandKeyword(ltd,lng,place) {
-            var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q--Rfveu8";
-            //var trust_url = $sce.trustAsUrl(url);
-            return $http.get(url);
+            var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?callback=test123&location=-33.8670522,151.1957362&radius=500&type=restaurant&keyword=cruise&key=AIzaSyDbednY80ODKBngq9ku8uWWZ8Q--Rfveu8";
+            var trust_url = $sce.trustAsResourceUrl(url);
+            // return $http.jsonp(url, {jsonpCallbackParam: 'callback'});
+            $.ajax({
+                type: 'GET',
+                url: url,
+                contentType: "text/plain",
+                crossDomain: true,
+                dataType: 'jsonp',
+                success: function (json) {
+                    console.log(json);
+                },
+                error: function (e) {
+                    console.log(e.message);
+
+                }
+            });
+                // $http
+            //     .get(url)
+            //     .success(function (response) {
+            //         console.log(response);
+            //     })
+            //     .error(function (err) {
+            //         console.log(err);
+            //     })
         }
         // function findBizs(location,place) {
         //     // var url = init_url + "venues/search?near="+location+"&query="+place+"&"+param_url;
