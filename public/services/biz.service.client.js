@@ -20,13 +20,14 @@
             findSimilarById: findSimilarById,
             findBizsByLL: findBizsByLL,
             findPhotoById: findPhotoById,
-            findBizsToExplore: findBizsToExplore
+            findBizsToExploreByLL: findBizsToExploreByLL,
+            findBizsToExploreByLocation: findBizsToExploreByLocation
         };
         return api;
 
 
         function findBizs(location,place) {
-            var url = init_url + "venues/search?near="+location+"&query="+place+"&"+param_url;
+            var url = init_url + "venues/search?near="+location+"&query="+place+"&"+param_url+"&limit=15";
             return $http.get(url);
         }
 
@@ -50,11 +51,15 @@
             return $http.get(url);
         }
 
-        function findBizsToExplore(latitude,longitude) {
+        function findBizsToExploreByLL(latitude,longitude) {
             var url = init_url + "venues/explore?ll="+latitude+","+longitude+"&"+param_url;
             return $http.get(url);
         }
 
+        function findBizsToExploreByLocation(location) {
+            var url = init_url + "venues/explore?near="+location+"&"+param_url;
+            return $http.get(url);
+        }
     }
 
 })();
