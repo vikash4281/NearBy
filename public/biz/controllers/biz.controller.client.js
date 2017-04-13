@@ -18,7 +18,7 @@
                     vm.biz = response.data.response.venue;
                     vm.lat = vm.biz.location.lat;
                     vm.lng = vm.biz.location.lng;
-                    console.log(vm.lat,vm.lng);
+                    console.log(vm.biz.photos.groups[0].items);
                 });
             BizService.findSimilarById(vm.bizid)
                 .then(function (response) {

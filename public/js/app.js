@@ -3,5 +3,5 @@
  */
 
 (function () {
-    angular.module(["NearBy"],["ngRoute","ngMap"]);
+    angular.module(["NearBy"],["ngRoute","ngMap","angular-flexslider"]);
 })();

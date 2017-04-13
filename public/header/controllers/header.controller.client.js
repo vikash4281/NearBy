@@ -8,29 +8,26 @@
         .module("MovieTimeApp")
         .controller("HeaderController", HeaderController);
 
-    function HeaderController($state, UserService) {
+    function HeaderController($scope, $location,UserService){
         var vm = this;
-
-        vm.toggleMenu = toggleMenu;
+        vm.query = '';
+        vm.submit = submit;
         vm.logout = logout;
-
-        function init() {
-
-        }
-
-        init();
-
-        function toggleMenu() {
-            $("#wrapper").toggleClass("toggled");
-        }
 
         function logout() {
             UserService
                 .logout()
-                .then(function () {
+                .then(function(){
                     UserService.setCurrentUser(null);
-                    $state.go("home");
+                    $location.url("/home");
                 });
+        }
+
+        function submit(){
+            if(vm.query) {
+                $location.url("/search/"+vm.query);
+                vm.query = '';
+            }
         }
     }
 

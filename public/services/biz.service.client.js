@@ -18,7 +18,8 @@
             findBizs: findBizs,
             findBizById: findBizById,
             findSimilarById: findSimilarById,
-            findBizsByLL: findBizsByLL
+            findBizsByLL: findBizsByLL,
+            findPhotoById: findPhotoById
         };
         return api;
 
@@ -43,6 +44,10 @@
             return $http.get(url);
         }
 
+        function findPhotoById(id) {
+            var url = init_url + "venues/"+id+"/photos"+"?"+param_url;
+            return $http.get(url);
+        }
     }
 
 })();

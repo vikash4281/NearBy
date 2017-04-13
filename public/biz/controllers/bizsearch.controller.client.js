@@ -31,8 +31,8 @@
                     BizService
                         .findBizsByLL(vm.lat,vm.lng)
                         .then(function (response) {
-                            console.log(response);
                             vm.bizs = response.data.response.venues;
+                            console.log(vm.bizs)
                         }, function (err) {
                             console.log(err);
                         });
@@ -45,6 +45,13 @@
             $location.url('/biz/'+id);
         }
 
+        // function getPhotoById(id){
+        //     BizService.findPhotoById(id)
+        //         .then(function (response) {
+        //             console.log(response);
+        //             return;
+        //         })
+        // }
 
     }
 })();
