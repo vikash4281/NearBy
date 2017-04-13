@@ -10,12 +10,14 @@
         var vm = this;
         vm.bizid = $routeParams.bizid;
         vm.findBizById = findBizById;
+        vm.getHalfStarVisible = getHalfStarVisible;
         init();
 
         function init() {
             BizService.findBizById(vm.bizid)
                 .then(function (response) {
                     vm.biz = response.data.response.venue;
+                    console.log(vm.biz);
                     vm.lat = vm.biz.location.lat;
                     vm.lng = vm.biz.location.lng;
                 });
@@ -27,6 +29,16 @@
 
         function findBizById(id) {
             $location.url('/biz/'+id);
+        }
+
+        function getHalfStarVisible(rating) {
+            var absDiff = Math.abs(rating % 1);
+
+            if(absDiff == 0.1) {
+                return false;
+            }
+
+            return absDiff > 0;
         }
 
     }
