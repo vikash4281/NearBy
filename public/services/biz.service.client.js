@@ -19,7 +19,8 @@
             findBizById: findBizById,
             findSimilarById: findSimilarById,
             findBizsByLL: findBizsByLL,
-            findPhotoById: findPhotoById
+            findPhotoById: findPhotoById,
+            findBizsToExplore: findBizsToExplore
         };
         return api;
 
@@ -40,7 +41,7 @@
         }
 
         function findBizsByLL(latitude,longitude){
-            var url = init_url + "venues/search?ll="+latitude+","+longitude+"&"+param_url;
+            var url = init_url + "venues/search?ll="+latitude+","+longitude+"&"+param_url+"&limit=15";
             return $http.get(url);
         }
 
@@ -48,6 +49,12 @@
             var url = init_url + "venues/"+id+"/photos"+"?"+param_url;
             return $http.get(url);
         }
+
+        function findBizsToExplore(latitude,longitude) {
+            var url = init_url + "venues/explore?ll="+latitude+","+longitude+"&"+param_url;
+            return $http.get(url);
+        }
+
     }
 
 })();

@@ -9,6 +9,7 @@ body{
 #googleMap{
     height: 400px;
     width: 500px;
+
 }
 
 #bizname{
@@ -22,6 +23,8 @@ body{
     opacity: 0.8;
     background-color: whitesmoke;
 }
+
+
 
 header {
     text-align: center;
@@ -52,8 +55,8 @@ header .intro-text .intro-lead-in {
 
 @media(min-width:768px) {
     header .intro-text {
-        padding-top: 120px;
-        padding-bottom: 220px;
+        padding-top: 30px;
+        padding-bottom: 130px;
     }
     header .intro-text .intro-lead-in {
         margin-bottom: 50px;
@@ -68,4 +71,19 @@ header .intro-text .intro-lead-in {
     header .container{
         padding-bottom: 80px;
     }
+    .side{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .map{
+        padding-bottom: 100px;}
+}
+
+.extend{
+    overflow: scroll;
+    height: 200px;
+}
+.extendmore{
+    overflow: scroll;
+    height: 600px;
 }
