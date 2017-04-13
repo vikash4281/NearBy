@@ -19,9 +19,9 @@ body{
 #categoryname{
     font-style: oblique;
     font-family: inherit;
-    color: black;
+    color: inherit;
     opacity: 0.8;
-    background-color: whitesmoke;
+    /*background-color: whitesmoke;*/
 }
 
 
@@ -77,6 +77,9 @@ header .intro-text .intro-lead-in {
     }
     .map{
         padding-bottom: 100px;}
+    .well{
+        background-color: lightskyblue !important;
+    }
 }
 
 .extend{
@@ -87,3 +90,12 @@ header .intro-text .intro-lead-in {
     overflow: scroll;
     height: 600px;
 }
+.fade{
+    -webkit-animation: fadein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
