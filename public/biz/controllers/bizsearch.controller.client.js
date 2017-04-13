@@ -29,10 +29,10 @@
                     vm.lng = position.coords.longitude;
                     vm.geoLocate = true;
                     BizService
-                        .findBizsByLLandKeyword(vm.lat,vm.lng,vm.place)
+                        .findBizsByLL(vm.lat,vm.lng)
                         .then(function (response) {
                             console.log(response);
-                            vm.bizs = response.results;
+                            vm.bizs = response.data.response.venues;
                         }, function (err) {
                             console.log(err);
                         });
