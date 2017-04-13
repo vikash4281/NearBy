@@ -36,6 +36,11 @@
                         }, function (err) {
                             console.log(err);
                         });
+                    BizService.findBizsToExplore(vm.lat,vm.lng)
+                        .then(function (response) {
+                            vm.trendingbizs = response.data.response.groups[0].items;
+                            console.log(vm.trendingbizs);
+                        })
                 });
 
             }
