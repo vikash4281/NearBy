@@ -24,6 +24,21 @@
                 controller: "BizController",
                 controllerAs: "model"
             })
+            .when("/register",{
+                templateUrl: "user/views/register.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "model"
+            })
+            .when("/login",{
+                templateUrl: "user/views/login.view.client.html",
+                controller: "LoginController",
+                controllerAs: "model"
+            })
+            .when("/profile",{
+                templateUrl: "user/views/profile.view.client.html",
+                controller: "ProfileController",
+                controllerAs: "model"
+            })
             .otherwise({
                 templateUrl: "biz/views/bizsearch.view.client.html",
                 controller: "BizSearchController",

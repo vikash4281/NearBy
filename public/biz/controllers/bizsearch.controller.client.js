@@ -6,14 +6,23 @@
     angular.module("NearBy")
         .controller("BizSearchController",BizSearchController);
 
-    function BizSearchController($location,BizService) {
+    function BizSearchController($location,BizService,UserService) {
         var vm = this;
         vm.search = search;
         vm.findBizById = findBizById;
         vm.geoLocate = false;
         init();
 
+        function getCurrentUser() {
+            UserService
+                .getCurrentUser()
+                .then(function (response) {
+                    vm.currentUser = response.data;
+                })
+        }
+
         function init() {
+            getCurrentUser();
             vm.place = "";
             detectLocation();
         }

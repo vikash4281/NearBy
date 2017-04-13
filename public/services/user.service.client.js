@@ -9,8 +9,12 @@
 
         var api = {
             setCurrentUser: setCurrentUser,
-            login: login
-
+            login: login,
+            updateUser: updateUser,
+            getCurrentUser: getCurrentUser,
+            register: register,
+            getProfile: getProfile,
+            logout: logout
         };
         return api;
 
@@ -18,10 +22,29 @@
             $rootScope.currentUser = user;
         }
 
-        function login(user) {
-            return $http.post("/api/project/login", user);
+        function getCurrentUser() {
+            return $http.get("/api/loggedin");
         }
 
+        function login(user) {
+            return $http.post("/api/login", user);
+        }
+
+        function logout() {
+            return $http.post("/api/logout");
+        }
+
+        function updateUser(userId, user) {
+            return $http.put ("/api/user/" + userId, user);
+        }
+
+        function register(user) {
+            return $http.post("/api/register", user);
+        }
+
+        function getProfile() {
+            return $http.get("/api/user/"+$rootScope.currentUser._id);
+        }
 
     }
 })();

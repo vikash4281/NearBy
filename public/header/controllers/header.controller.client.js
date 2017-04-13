@@ -5,10 +5,10 @@
 (function () {
 
     angular
-        .module("MovieTimeApp")
+        .module("NearBy")
         .controller("HeaderController", HeaderController);
 
-    function HeaderController($scope, $location,UserService){
+    function HeaderController($location,UserService){
         var vm = this;
         vm.query = '';
         vm.submit = submit;
@@ -19,7 +19,8 @@
                 .logout()
                 .then(function(){
                     UserService.setCurrentUser(null);
-                    $location.url("/home");
+                    console.log("camehere")
+                    $location.url("/bizsearch");
                 });
         }
 
