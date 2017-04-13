@@ -23,6 +23,17 @@
         }
 
         function search() {
+            vm.errorplace = "";
+            vm.errorlocation = "";
+            console.log(vm.place,vm.location);
+            if(vm.place == null || vm.place == ""){
+                vm.errorplace = "Please enter what you are looking for";
+                return;
+            }
+            if(vm.location == null || vm.location == ""){
+                vm.errorlocation = "Please specify a location";
+                return;
+            }
             $location.url('/bizlist/'+ vm.location + '/' + vm.place);
         }
 

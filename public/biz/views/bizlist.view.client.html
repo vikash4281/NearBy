@@ -2,13 +2,19 @@
 <div class="container-fluid col-md-12">
     <div class="row">
         <div class="col-md-4 form-group">
-            <input ng-model="model.place" class="form-control input-xlg" placeholder="What kind of place you are looking for?">
+            <input ng-model="model.place" class="form-control input-xlg" placeholder="I am looking for...">
+            <div ng-show="model.errorplace" class="alert alert-danger" role="alert">
+                {{model.errorplace}}
+            </div>
         </div>
         <div class="col-md-4 form-group">
             <input ng-model="model.location" class="form-control input-xlg" id="city" placeholder="Location">
+            <div ng-show="model.errorlocation" class="alert alert-danger" role="alert">
+                {{model.errorlocation}}
+            </div>
         </div>
         <div class="col-md-4 form-group">
-            <a ng-click="model.search()" class="btn btn-success btn-block btn-xlg">Search</a>
+            <a ng-click="model.search()" class="btn btn-primary btn-block btn-xlg">Search</a>
         </div>
     </div>
 </div>
