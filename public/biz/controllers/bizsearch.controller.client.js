@@ -59,7 +59,7 @@
                         .then(function (response) {
                             vm.trendingbizs = response.data.response.groups[0].items;
                             console.log(vm.trendingbizs);
-                        })
+                        });
                 });
 
             }
