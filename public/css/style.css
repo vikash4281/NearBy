@@ -85,9 +85,8 @@ header .intro-text .intro-lead-in {
     }
     .map{
         padding-bottom: 100px;}
-    .well{
-        background-color: lightskyblue !important;
-    }
+    /*.well{*/
+        /*background-color: lightskyblue !important;*/
 }
 
 .extend{
@@ -107,3 +106,22 @@ header .intro-text .intro-lead-in {
     to   { opacity: 1; }
 }
 
+#bizimage{
+    width:100%;
+    height:250px;
+}
+
+@media(min-width:768px) {
+    #bizimage{
+        width:100%;
+        height:560px;
+    }
+}
+
+/*.oddtile{*/
+    /*background-color: burlywood !important;;*/
+/*}*/
+
+/*.eventile{*/
+    /*background-color: palegoldenrod !important;;*/
+/*}*/

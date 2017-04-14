@@ -1,6 +1,5 @@
-
 <div class="container-fluid w3-animate-opacity">
-<div class="container-fluid col-md-12" style="margin-top: 50px">
+<div class="container-fluid col-md-12" style="margin-top: 23px">
     <div class="row">
         <div class="col-md-4 form-group">
             <input ng-model="model.place" class="form-control input-xlg" placeholder="I am looking for...">
@@ -19,12 +18,14 @@
         </div>
     </div>
 </div>
-
+<div ng-show="model.info" class="alert alert-info" role="alert">
+    {{model.info}}
+</div>
 <div class="container-fluid">
         <h4>&nbsp</h4>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <h2>Places near you</h2>
+                <h2 ng-hide="model.info">Places near you</h2>
                 <div class="media" ng-repeat="biz in model.bizs">
                     <div class="media-body well">
                         <div class="row">
@@ -48,8 +49,8 @@
                 </div>
             </div>
 
-            <div class="col-xs-hide col-sm-6">
-                <h2>Places most popular</h2>
+            <div class="hidden-xs col-sm-6">
+                <h2>Popular Places</h2>
                 <div class="extendmore">
                     <div class="media" ng-repeat="biz in model.trendingbizs">
                         <div class="media-body well">

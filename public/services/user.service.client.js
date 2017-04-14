@@ -16,7 +16,9 @@
             getProfile: getProfile,
             logout: logout,
             findAllUsers: findAllUsers,
-            deleteUserById: deleteUserById
+            deleteUserById: deleteUserById,
+            likePlace: likePlace,
+            dislikePlace: dislikePlace
         };
         return api;
 
@@ -56,5 +58,12 @@
             return $http.delete ("/api/user/" + userId);
         }
 
+        function likePlace(userId, placeId) {
+            return $http.put("/api/likePlace/" + userId + "/" + placeId);
+        }
+
+        function dislikePlace(userId, placeId) {
+            return $http.put("/api/dislikePlace/" + userId + "/" + placeId);
+        }
     }
 })();

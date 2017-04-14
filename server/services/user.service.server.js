@@ -151,7 +151,6 @@ module.exports = function(app, userModel, passport) {
     }
 
     function loggedin(req, res) {
-        console.log(req.user)
         res.json(req.isAuthenticated() ? req.user : null);
     }
 

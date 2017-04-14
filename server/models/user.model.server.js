@@ -61,6 +61,7 @@ module.exports = function(db, mongoose, UserModel) {
             lastName: user.lastName,
             email: user.email,
             roles: user.roles,
+            likes: user.likes,
             rates: user.rates,
             ratedMovies: user.ratedMovies,
             reviews: user.reviews,

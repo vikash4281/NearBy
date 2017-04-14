@@ -6,7 +6,7 @@
     angular.module("NearBy")
         .controller("BizSearchController",BizSearchController);
 
-    function BizSearchController($location,BizService,UserService) {
+    function BizSearchController($location,BizService,UserService,SearchService) {
         var vm = this;
         vm.search = search;
         vm.findBizById = findBizById;
@@ -38,6 +38,8 @@
                 vm.errorlocation = "Please specify a location";
                 return;
             }
+            SearchService.setPlace(vm.place);
+            SearchService.setLocation(vm.location);
             $location.url('/bizlist/'+ vm.location + '/' + vm.place);
         }
 

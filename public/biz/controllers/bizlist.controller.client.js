@@ -6,7 +6,7 @@
     angular.module("NearBy")
         .controller("BizListController",BizListController);
 
-    function BizListController($location,$routeParams,BizService) {
+    function BizListController($location,$routeParams,BizService,SearchService) {
         var vm = this;
         vm.location = $routeParams.location;
         vm.place = $routeParams.place;
@@ -18,6 +18,9 @@
             BizService.findBizs(vm.location,vm.place)
                 .then(function (response) {
                     vm.bizs = response.data.response.venues;
+                    if(vm.bizs.length == 0){
+                        vm.info = "No results found!!! Please try searching with different inputs"
+                    }
                     console.log(vm.bizs);
                 });
             BizService.findBizsToExploreByLocation(vm.location)
@@ -39,6 +42,8 @@
                 vm.errorlocation = "Please specify a location";
                 return;
             }
+            SearchService.setPlace(vm.place);
+            SearchService.setLocation(vm.location);
             $location.url('/bizlist/'+ vm.location + '/' + vm.place);
         }
 
