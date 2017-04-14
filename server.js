@@ -7,6 +7,14 @@ var session       = require('express-session');
 var mongoose      = require('mongoose');
 
 var connectionString = 'mongodb://127.0.0.1:27017/NearBy';
+if(process.env.MLAB_USERNAME) {
+    connectionString =/* process.env.MLAB_USERNAME + ":" +
+        process.env.MLAB_PASSWORD + "@" +
+        process.env.MLAB_HOST + ':' +
+        process.env.MLAB_PORT + '/' +
+        process.env.MLAB_APP_NAME;*/
+    process.env.MONGODB_URI;
+}
 
 var db = mongoose.connect(connectionString);
 
@@ -22,6 +30,7 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 3000;
+console.log(port);
 
 var UserSchema = require("./server/models/user.schema.server.js")(mongoose);
 var User = mongoose.model("User", UserSchema);
@@ -31,5 +40,4 @@ require("./security/security")(app, UserModel, passport);
 
 require("./server/app.js")(app, db, mongoose, passport, UserModel);
 
-app.listen(port,function(err){
-    console.log("port starting",err);});
+app.listen(port);
