@@ -35,19 +35,27 @@
                 return;
             }
             vm.user.roles = ["user"];
+
             UserService
                 .register(vm.user)
                 .then(
-                    function(response) {
+                    function (response) {
                         var user = response.data;
-                        if(user != null) {
+                        if (user != null) {
                             UserService.setCurrentUser(user);
+                            if(user.username == "admin"){
+                                user.roles = ["user","admin"];
+                                UserService.updateUser(user._id,user)
+                                    .then(function (response) {
+                                        console.log("Admin created ",response.data);
+                                    })
+                            }
                             $location.url("/profile");
                         }
                         else
                             vm.message = "Username already exists.";
                     },
-                    function(err) {
+                    function (err) {
                         vm.error = err;
                     }
                 );

@@ -54,7 +54,6 @@ module.exports = function(db, mongoose, UserModel) {
 
     function updateUser(userId, user) {
         var deferred = q.defer();
-        // create new user without an _id field
         var newUser = {
             username: user.username,
             password: user.password,

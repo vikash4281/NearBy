@@ -14,7 +14,9 @@
             getCurrentUser: getCurrentUser,
             register: register,
             getProfile: getProfile,
-            logout: logout
+            logout: logout,
+            findAllUsers: findAllUsers,
+            deleteUserById: deleteUserById
         };
         return api;
 
@@ -44,6 +46,14 @@
 
         function getProfile() {
             return $http.get("/api/user/"+$rootScope.currentUser._id);
+        }
+
+        function findAllUsers() {
+            return $http.get("/api/user");
+        }
+
+        function deleteUserById(userId) {
+            return $http.delete ("/api/user/" + userId);
         }
 
     }

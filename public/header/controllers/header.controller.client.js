@@ -19,7 +19,6 @@
                 .logout()
                 .then(function(){
                     UserService.setCurrentUser(null);
-                    console.log("camehere")
                     $location.url("/bizsearch");
                 });
         }

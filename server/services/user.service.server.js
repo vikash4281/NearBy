@@ -6,15 +6,14 @@ module.exports = function(app, userModel, passport) {
 
     var auth = authorized;
     app.post('/api/login', passport.authenticate('local'), login);
-    //app.post("/api/user", createUser);// admin
-    app.post("/api/register", register);//register
-    //app.get("/api/user", auth, getUser);
+    app.post("/api/register", register);
+    app.get("/api/user", auth, getUser);
     app.get("/api/user/:id", auth, getUserById);
+    app.put("/api/userrole/:userId",auth,addRole);
     app.put("/api/user/:id", auth, updateUser);
-    //app.delete("/api/project/user/:id", auth, deleteUser);// admin
+    app.delete("/api/user/:id", auth, deleteUser);
     app.get("/api/loggedin", loggedin);
     app.post("/api/logout", logout);
-    //app.put("/api/user/:userId/role", auth, addRole);// admin
 
     function register(req, res) {
         var newUser = req.body;
@@ -162,7 +161,6 @@ module.exports = function(app, userModel, passport) {
     }
 
     function addRole(req, res) {
-        if(isAdmin(req.user)) {
             var userId = req.params.userId;
             var role = req.body.role;
             userModel.findUserById(userId)
@@ -185,9 +183,6 @@ module.exports = function(app, userModel, passport) {
                         res.status(400).send(err);
                     }
                 );
-        } else {
-            res.send(403);
-        }
     }
 
     function login(req, res) {
