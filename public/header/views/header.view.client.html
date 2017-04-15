@@ -29,8 +29,12 @@
 
                 <li ng-show="currentUser"
                     ng-class="{'active': $location.url() == '/profile'}">
-                    <a href="#/profile" data-toggle="collapse"
+                    <a href="#/activity" data-toggle="collapse"
                        data-target=".navbar-collapse.in">{{currentUser.username}}</a></li>
+                <li ng-show="currentUser"
+                    ng-class="{'active': $location.url() == '/profile'}">
+                    <a href="#/profile" data-toggle="collapse"
+                       data-target=".navbar-collapse.in">Profile</a></li>
                 <li ng-show="currentUser" ng-click="model.logout()">
                     <a data-toggle="collapse" data-target=".navbar-collapse.in">Logout</a></li>
             </ul>

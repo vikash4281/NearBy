@@ -37,7 +37,7 @@
                         vm.user = response.data;
                         console.log(vm.user);
                         for(i in vm.user.likes){
-                            if(vm.user.likes[i]==vm.bizid){
+                            if(vm.user.likes[i].id==vm.bizid){
                                 vm.isLiked = true;
                                 break
                             }
@@ -69,7 +69,12 @@
         }
 
         function likePlace() {
-            vm.user.likes.push(vm.biz.id);
+            var like = {
+                id: vm.biz.id,
+                name: vm.biz.name,
+                category: vm.biz.categories[0].name
+            };
+            vm.user.likes.push(like);
             UserService.updateUser(vm.user._id,vm.user)
                 .then(function (response) {
                     init();
@@ -77,7 +82,13 @@
         }
 
         function dislikePlace() {
-            vm.user.likes.splice(vm.biz.id,1)
+            for(var i in vm.user.likes){
+                if(vm.user.likes[i].id == vm.biz.id){
+                    vm.user.likes.splice(i,1);
+                    break;
+                }
+            }
+            // vm.user.likes.splice(vm.biz.id,1)
             UserService.updateUser(vm.user._id,vm.user)
                 .then(function (response) {
                     init();

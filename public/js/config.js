@@ -60,6 +60,14 @@
                     checkIfAdmin: checkIfAdmin
                 }
             })
+            .when("/activity", {
+                templateUrl: "user/views/activity.view.client.html",
+                controller: "ActivityController",
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
+            })
             .otherwise({
                 templateUrl: "biz/views/bizsearch.view.client.html",
                 controller: "BizSearchController",

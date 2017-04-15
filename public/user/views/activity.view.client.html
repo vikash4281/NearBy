@@ -1,0 +1,8 @@
+<h1>Favourites</h1>
+
+<div class="container-fluid" ng-repeat="place in model.user.likes">
+    <a ng-click="model.findBizById(place.id)">
+        <p>{{place.name}}</p>
+        <p>{{place.category}}</p></a>
+    </a>
+</div>

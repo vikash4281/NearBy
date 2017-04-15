@@ -49,13 +49,11 @@
                 <div  ng-repeat="biz in model.bizs">
                     <div class="media">
                         <div class="media-body">
-                            <a ng-click="model.findBizById(biz.id)">
+                            <a ng-click="model.findBizById(biz.id)"></a>
                             <h4 class="media-heading" style="color:crimson">{{biz.name| limitTo:25}}...</h4>
                                 <p>{{biz.location.formattedAddress[0]}},
                                     {{biz.location.formattedAddress[1]}}
                                     {{biz.location.formattedAddress[2]}}</p>
-
-                            </a>
                         </div>
                     </div>
                 </div>

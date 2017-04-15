@@ -11,7 +11,7 @@ module.exports = function(mongoose) {
         lastName: String,
         email: String,
         roles: [String],
-        likes: [String]
+        likes : [{id: String, name: String, category: String}],
     }, {collection: 'User'});
     return UserSchema;
 };
