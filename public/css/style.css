@@ -30,17 +30,26 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url("../images/restaurant2.jpg");
+    background-image: url("../images/restaurant3.jpg");
     background-position: center center;
-    background-repeat: none;
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
 
+header .intro-lead-in {
+    color: 	#5C1205;
+    font-size: xx-large;
+    font-stretch: extra-expanded;
+    font-style: normal;
+    margin-top: 40px;
+    font-family: cursive;
+}
+
 header .intro-text {
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 50px;
 }
 
@@ -53,13 +62,32 @@ header .intro-text .intro-lead-in {
     color: chocolate;
 }
 
+.form-control.input-xlg.homeinput{
+    background-color: black;
+    opacity: 0.5;
+}
+
+header .container{
+    padding-bottom: 40px;
+}
+
 @media(min-width:768px) {
+
+    header .intro-lead-in {
+        color: 	#5C1205;
+        font-size: xx-large;
+        font-stretch: extra-expanded;
+        font-style: normal;
+        margin-top: 80px;
+        font-family: cursive;
+    }
+
     header .intro-text {
-        padding-top: 30px;
-        padding-bottom: 100px;
+        padding-top: 80px;
+        padding-bottom: 90px;
     }
     header .intro-text .intro-lead-in {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
         font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 75px;
         font-style: normal;
@@ -68,17 +96,10 @@ header .intro-text .intro-lead-in {
         color: darkgoldenrod;
     }
 
-    header .intro-lead-in {
-        color: crimson;
-        font-size: xx-large;
-        font-stretch: extra-expanded;
-        font-style: italic;
-        margin-bottom: 100px;
+    header .container{
+        padding-bottom: 100px;
     }
 
-    header .container{
-        padding-bottom: 40px;
-    }
     .side{
         padding-left: 100px;
         padding-right: 100px;

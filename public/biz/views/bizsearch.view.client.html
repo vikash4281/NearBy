@@ -6,21 +6,21 @@
         <!---->
     <!--</div>-->
     <div class="container w3-animate-opacity">
+        <div class="intro-lead-in">Discover your favourite places!!!</div>
         <div class="intro-text">
-            <!--<div class="intro-lead-in">NearBy</div>-->
-            <h2 style="padding-top:180px" class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Near</b></span> <span class="w3-text-black">By</span></h2>
+            <h2 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Near</b></span> <span class="w3-text-grey">By</span></h2>
         </div>
         <div class="container" id="searchbar">
             <div class="searchGroup col-md-12">
                 <div class="row">
                     <div class="col-md-4 form-group">
-                        <input ng-model="model.place" class="form-control input-xlg" placeholder="I am looking for...">
+                        <input ng-model="model.place" class="form-control input-xlg homeinput" placeholder="I am looking for...">
                         <div ng-show="model.errorplace" class="alert alert-danger" role="alert">
                             {{model.errorplace}}
                         </div>
                     </div>
                     <div class="col-md-4 form-group">
-                        <input ng-model="model.location" class="form-control input-xlg" id="city" placeholder="Location">
+                        <input ng-model="model.location" class="form-control input-xlg homeinput" id="city" placeholder="Location">
                         <div ng-show="model.errorlocation" class="alert alert-danger" role="alert">
                             {{model.errorlocation}}
                         </div>
@@ -31,11 +31,9 @@
                 </div>
             </div>
         </div>
-        <div class="intro-lead-in">Discover your favourite places!!!</div>
     </div>
 
 </header>
-<h2>&nbsp</h2>
 <div class="container-fluid w3-animate-opacity">
     <div ng-show="model.geoLocate" class="container-fluid">
             <h4>&nbsp</h4>
