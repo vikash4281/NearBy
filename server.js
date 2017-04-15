@@ -30,7 +30,6 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 3000;
-console.log(port);
 
 var UserSchema = require("./server/models/user.schema.server.js")(mongoose);
 var User = mongoose.model("User", UserSchema);

@@ -47,8 +47,7 @@
                                 user.roles = ["user","admin"];
                                 UserService.updateUser(user._id,user)
                                     .then(function (response) {
-                                        console.log("Admin created ",response.data);
-                                    })
+                                    });
                             }
                             $location.url("/profile");
                         }

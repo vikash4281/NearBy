@@ -18,7 +18,6 @@
                 .then(function (response) {
                     if (response.data) {
                         vm.user = response.data;
-                        console.log(vm.user.likes);
                     }
                 });
         }

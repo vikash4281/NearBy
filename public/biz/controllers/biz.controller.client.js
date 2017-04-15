@@ -22,7 +22,6 @@
             BizService.findBizById(vm.bizid)
                 .then(function (response) {
                     vm.biz = response.data.response.venue;
-                    console.log(vm.biz);
                     vm.lat = vm.biz.location.lat;
                     vm.lng = vm.biz.location.lng;
                 });
@@ -35,7 +34,6 @@
                 .then(function (response) {
                     if (response.data) {
                         vm.user = response.data;
-                        console.log(vm.user);
                         for(i in vm.user.likes){
                             if(vm.user.likes[i].id==vm.bizid){
                                 vm.isLiked = true;
@@ -64,7 +62,6 @@
         function goback() {
             vm.location = SearchService.getLocation();
             vm.place =  SearchService.getPlace();
-            console.log(vm.place,vm.location);
             $location.url('/bizlist/'+vm.location+'/'+vm.place);
         }
 

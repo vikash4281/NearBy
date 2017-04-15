@@ -18,13 +18,13 @@
         <div class="container col-xs-12 col-sm-8">
 
             <span ng-show="model.user._id">
-                <h1 class="page-header below-flex" >{{model.biz.name}}
+                <h1 class="page-header below-flex">{{model.biz.name}}
                     <a ng-click="model.likePlace()" ng-hide="model.isLiked"><i class="fa fa-star-o pull-right" aria-hidden="true"></i></a>
                     <a ng-click="model.dislikePlace()" ng-show="model.isLiked"><i class="fa fa-star pull-right" aria-hidden="true"></i></a>
                 </h1>
             </span>
             <span ng-hide="model.user._id">
-                <h1 class="page-header below-flex" >{{model.biz.name}}
+                <h1 class="page-header below-flex">{{model.biz.name}}
                     <a ng-hide="model.isLiked" data-toggle="tooltip" data-placement="top" title="Log in to save your favourite places" ng-disabled="!user._id">
                     <i class="fa fa-star-o pull-right" aria-hidden="true"></i></a>
                 </h1>
@@ -59,8 +59,6 @@
                 <div  ng-repeat="biz in model.bizs">
                     <div class="media">
                         <div class="media-body">
-                            <a ng-click="model.findBizById(biz.id)">
-                            <h4 class="media-heading" style="color:crimson">{{biz.name| limitTo:25}}...</h4></a>
                             <a ng-click="model.findBizById(biz.id)"></a>
                             <h4 class="media-heading" id="fbi">{{biz.name| limitTo:25}}...</h4>
                                 <p>{{biz.location.formattedAddress[0]}},

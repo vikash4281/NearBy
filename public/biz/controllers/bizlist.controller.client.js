@@ -21,19 +21,16 @@
                     if(vm.bizs.length == 0){
                         vm.info = "No results found!!! Please try searching with different inputs"
                     }
-                    console.log(vm.bizs);
                 });
             BizService.findBizsToExploreByLocation(vm.location)
                 .then(function (response) {
                     vm.trendingbizs = response.data.response.groups[0].items;
-                    console.log(vm.trendingbizs);
                 });
         }
 
         function search() {
             vm.errorplace = "";
             vm.errorlocation = "";
-            console.log(vm.place,vm.location);
             if(vm.place == null || vm.place == ""){
                 vm.errorplace = "Please enter what you are looking for";
                 return;

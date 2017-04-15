@@ -29,7 +29,6 @@
         function search() {
             vm.errorplace = "";
             vm.errorlocation = "";
-            console.log(vm.place,vm.location);
             if(vm.place == null || vm.place == ""){
                 vm.errorplace = "Please enter what you are looking for";
                 return;
@@ -53,14 +52,10 @@
                         .findBizsByLL(vm.lat,vm.lng)
                         .then(function (response) {
                             vm.bizs = response.data.response.venues;
-                            console.log(vm.bizs)
-                        }, function (err) {
-                            console.log(err);
                         });
                     BizService.findBizsToExploreByLL(vm.lat,vm.lng)
                         .then(function (response) {
                             vm.trendingbizs = response.data.response.groups[0].items;
-                            console.log(vm.trendingbizs);
                         });
                 });
 
