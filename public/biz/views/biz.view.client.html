@@ -1,6 +1,6 @@
-<div style="position:fixed;margin-top: 25px" class="container-fluid">
+<div class="container-fluid" id="left-tri">
     <a ng-click="model.goback()">
-        <span class="glyphicon glyphicon-triangle-left" style="font-size: x-large">
+        <span class="glyphicon glyphicon-triangle-left" id="gly">
         </span>
     </a>
 </div>
@@ -18,13 +18,13 @@
         <div class="container col-xs-12 col-sm-8">
 
             <span ng-show="model.user._id">
-                <h1 class="page-header" style="color: crimson;"><a href="{{model.biz.url}}" target="_blank">{{model.biz.name}}</a>
+                <h1 class="page-header below-flex" >{{model.biz.name}}
                     <a ng-click="model.likePlace()" ng-hide="model.isLiked"><i class="fa fa-star-o pull-right" aria-hidden="true"></i></a>
                     <a ng-click="model.dislikePlace()" ng-show="model.isLiked"><i class="fa fa-star pull-right" aria-hidden="true"></i></a>
                 </h1>
             </span>
             <span ng-hide="model.user._id">
-                <h1 class="page-header" style="color: crimson;"><a href="{{model.biz.url}}" target="_blank">{{model.biz.name}}</a>
+                <h1 class="page-header below-flex" >{{model.biz.name}}
                     <a ng-hide="model.isLiked" data-toggle="tooltip" data-placement="top" title="Log in to save your favourite places" ng-disabled="!user._id">
                     <i class="fa fa-star-o pull-right" aria-hidden="true"></i></a>
                 </h1>
@@ -46,21 +46,23 @@
                 </div>
 
                 <h5>&nbsp</h5>
-                <div class="col-xs-12 col-sm-8 container-fluid" ng-repeat="address in model.biz.location.formattedAddress">
-                    <h5 style="line-height: 10px">{{address}}</h5>
+                <div class="col-xs-12 col-sm-8" ng-repeat="address in model.biz.location.formattedAddress">
+                    <h6 id="address-1">{{address}}</h6>
                 </div>
 
             </div>
         </div>
 
         <div class="container col-xs-12 col-sm-4">
-            <h2 class="page-header" ng-show="model.bizs.length > 0" style="color: mediumblue;">You might also like</h2>
+            <h2 class="page-header" ng-show="model.bizs.length > 0" id="yml">You might also like</h2>
             <div class="extend">
                 <div  ng-repeat="biz in model.bizs">
                     <div class="media">
                         <div class="media-body">
                             <a ng-click="model.findBizById(biz.id)">
                             <h4 class="media-heading" style="color:crimson">{{biz.name| limitTo:25}}...</h4></a>
+                            <a ng-click="model.findBizById(biz.id)"></a>
+                            <h4 class="media-heading" id="fbi">{{biz.name| limitTo:25}}...</h4>
                                 <p>{{biz.location.formattedAddress[0]}},
                                     {{biz.location.formattedAddress[1]}}
                                     {{biz.location.formattedAddress[2]}}</p>
