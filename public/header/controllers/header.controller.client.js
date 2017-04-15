@@ -10,8 +10,6 @@
 
     function HeaderController($location,UserService){
         var vm = this;
-        vm.query = '';
-        vm.submit = submit;
         vm.logout = logout;
 
         function logout() {
@@ -21,13 +19,6 @@
                     UserService.setCurrentUser(null);
                     $location.url("/bizsearch");
                 });
-        }
-
-        function submit(){
-            if(vm.query) {
-                $location.url("/search/"+vm.query);
-                vm.query = '';
-            }
         }
     }
 
