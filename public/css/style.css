@@ -14,6 +14,11 @@ body{
 
 }
 
+.addressadjust{
+    margin-bottom: 0px;
+
+}
+
 #bizname{
     color: crimson;
 }
@@ -76,6 +81,13 @@ header .intro-text .intro-lead-in {
 header .container{
     padding-bottom: 40px;
 }
+.well {
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
 
 @media(min-width:768px) {
 
@@ -120,6 +132,20 @@ header .container{
     .example{
         padding-right: 80px;
         padding-left: 5px;
+    }
+    .well {
+        padding-bottom: 0px;
+        padding-right: 0px;
+        padding-top: 0px;
+        padding-left: 0px;
+        margin-bottom: 10px;
+    }
+    .below-flex {
+        padding-left: 10px;
+
+    }
+    .bold{
+        padding-left: 10px;
     }
 }
 .extend{
