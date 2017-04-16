@@ -116,6 +116,12 @@ header .container{
         /*background-color: lightskyblue !important;*/
 }
 
+@media (max-width: 768px) {
+    .example{
+        padding-right: 80px;
+        padding-left: 5px;
+    }
+}
 .extend{
     overflow: scroll;
     height: 200px;
