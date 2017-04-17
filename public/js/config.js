@@ -73,7 +73,7 @@
                 controller: "BizSearchController",
                 controllerAs: "model",
                 resolve: {
-                    getLoggedIn: getLoggedIn
+                    getLoggedIn: checkLoggedIn
                 }
             });
     }
@@ -84,25 +84,26 @@
             .getCurrentUser()
             .then(function(response){
                 var currentUser = response.data;
-                UserService.setCurrentUser(currentUser);
+                if(currentUser._id)
+                    UserService.setCurrentUser(currentUser);
                 deferred.resolve();
             });
         return deferred.promise;
     }
 
-    function checkLoggedIn(UserService, $q, $location) {
+    function checkLoggedIn(UserService, $q, $location,$rootScope) {
         var deferred = $q.defer();
-        UserService
-            .getCurrentUser()
+
+        UserService.getCurrentUser()
             .then(function(response) {
-                var currentUser = response.data;
-                if(currentUser) {
-                    UserService.setCurrentUser(currentUser);
+                var user = response.data;
+                $rootScope.errorMessage = null;
+                if (user._id) {
+                    $rootScope.currentUser = user;
                     deferred.resolve();
                 } else {
-                    UserService.setCurrentUser(null);
                     deferred.reject();
-                    $location.url("/bizsearch");
+                    $location.url('/bizsearch');
                 }
             });
         return deferred.promise;

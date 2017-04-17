@@ -39,7 +39,7 @@
         }
 
         function updateUser(userId, user) {
-            return $http.put ("/api/user/" + userId, user);
+            return $http.put("/api/user/" + userId, user);
         }
 
         function register(user) {
@@ -51,7 +51,7 @@
         }
 
         function findAllUsers() {
-            return $http.get("/api/user");
+            return $http.get("/api/findAllUsers");
         }
 
         function deleteUserById(userId) {

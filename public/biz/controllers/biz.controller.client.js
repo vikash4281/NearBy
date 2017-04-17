@@ -85,7 +85,6 @@
                     break;
                 }
             }
-            // vm.user.likes.splice(vm.biz.id,1)
             UserService.updateUser(vm.user._id,vm.user)
                 .then(function (response) {
                     init();

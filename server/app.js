@@ -2,7 +2,8 @@
  * Created by vyshaalnarayanam on 4/13/17.
  */
 
-module.exports = function(app, db, mongoose, passport, UserModel) {
+module.exports = function(app) {
 
-    var userService  = require("./services/user.service.server.js") (app, UserModel, passport);
+    var model = require("./models/models.server")(app);
+    require("./services/user.service.server")(app,model);
 };

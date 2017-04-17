@@ -49,7 +49,7 @@
                                     .then(function (response) {
                                     });
                             }
-                            $location.url("/profile");
+                            $location.url("/bizsearch");
                         }
                         else
                             vm.message = "Username already exists.";

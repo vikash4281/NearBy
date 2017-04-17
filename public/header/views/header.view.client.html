@@ -22,7 +22,7 @@
                     ng-class="{'active': $location.url() == '/login'}">
                     <a href="#/login" data-toggle="collapse" data-target=".navbar-collapse.in">Login</a></li>
 
-                <li ng-show="currentUser.roles.indexOf('admin') >= 0"
+                <li ng-show="currentUser.role == 'admin'"
                     ng-class="{'active': $location.url() == '/admin'}">
                     <a href="#/admin" data-toggle="collapse" data-target=".navbar-collapse.in">Admin</a></li>
 

@@ -8,8 +8,9 @@
         .module("NearBy")
         .controller("ProfileController", ProfileController);
 
-    function ProfileController(UserService, $routeParams) {
+    function ProfileController(UserService, $routeParams, $location) {
         var vm = this;
+        vm.update = update;
         init();
 
         function init() {
@@ -39,10 +40,10 @@
                 vm.error = "Please provide a username";
                 return;
             }
-            if (!user.password) {
-                vm.error = "Please provide a password";
-                return;
-            }
+            // if (!user.password) {
+            //     vm.error = "Please provide a password";
+            //     return;
+            // }
             if (!user.email) {
                 vm.error = "Please provide a valid email";
                 return;

@@ -10,6 +10,7 @@
     function ActivityController(UserService,$location) {
         var vm = this;
         vm.findBizById = findBizById;
+        vm.dislikePlace = dislikePlace;
         init();
 
         function init() {
@@ -25,5 +26,19 @@
         function findBizById(id) {
             $location.url('/biz/'+id);
         }
+
+        function dislikePlace(id) {
+            for(var i in vm.user.likes){
+                if(vm.user.likes[i].id == id){
+                    vm.user.likes.splice(i,1);
+                    break;
+                }
+            }
+            UserService.updateUser(vm.user._id,vm.user)
+                .then(function (response) {
+                    init();
+                });
+        }
+
     }
 })();
