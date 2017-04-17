@@ -59,7 +59,7 @@ module.exports = function (app, model) {
     app.get('/google/callback',
             passport.authenticate('google', {
                 successRedirect: '/#/bizsearch',
-                failureRedirect: '/#/login'
+                failureRedirect: '/#/bizsearch'
         }));
 
 

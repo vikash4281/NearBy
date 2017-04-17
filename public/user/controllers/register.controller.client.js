@@ -44,7 +44,7 @@
                         if (user != null) {
                             UserService.setCurrentUser(user);
                             if(user.username == "admin"){
-                                user.roles = ["user","admin"];
+                                user.role = "admin";
                                 UserService.updateUser(user._id,user)
                                     .then(function (response) {
                                     });
