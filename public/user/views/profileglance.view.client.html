@@ -1,65 +1,69 @@
 <div class="container-fluid">
 
-    <div class="container">
-        <h1>{{model.friend.username}}</h1>
-        <a ng-hide="model.isFollowing" ng-click="model.follow()" class="btn btn-primary">Follow</a>
-        <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>
-    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
 
-    <div class="container">
-        <div ng-show="model.friend.username">
-            <h1>Username</h1>
-            {{model.friend.username}}
+            <div ng-show="model.friend.username">
+                <h1>
+                {{model.friend.firstName}}
+                    <div class="pull-right">
+                        <a ng-hide="model.isFollowing" ng-click="model.follow()" class="btn btn-primary">Follow</a>
+                        <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>
+                    </div>
+                </h1>
+
+            </div>
+            <div class="container">
+                <div ng-show="model.friend.username">
+                    <h6>Username: {{model.friend.username}}</h6>
+                </div>
+
+                <div ng-show="model.friend.firstName">
+                    <h6>Firstname: {{model.friend.firstName}}</h6>
+                </div>
+
+                <div ng-show="model.friend.lastName">
+                    <h6>Lastname: {{model.friend.lastName}}</h6>
+                </div>
+
+                <div ng-show="model.friend.email">
+                    <h6>Email: {{model.friend.email}}</h6>
+                </div>
+            </div>
+            <div>
+                <h1>Followers</h1>
+                <h2>Count: {{model.friend.followers.length}}</h2>
+                <div ng-repeat="user in model.friend.followers">
+                    <div>
+                        <a ng-click="model.findUserById(user.id)"><h5>{{user.username}}</h5></a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h1>Following</h1>
+                <h2>Count: {{model.friend.following.length}}</h2>
+                <div ng-repeat="user in model.friend.following">
+                    <div>
+                        <a ng-click="model.findUserById(user.id)"><h5>{{user.username}}</h5></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 example">
+            <div class="container-fluid">
+                <h2>Reviews Participated</h2>
+                <div class="extendmore-1">
+                    <div ng-repeat="review in model.reviews">
+
+                        <div class="well ">
+                            <a ng-click="model.findBizById(review.bizId)"><h5>{{review.bizname}}</h5></a>
+                            <h5>{{review.description}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div ng-show="model.friend.firstName">
-            <h1>Firstname</h1>
-            {{model.friend.firstName}}
-        </div>
-
-        <div ng-show="model.friend.lastName">
-            <h1>Lastname</h1>
-            {{model.friend.lastName}}
-        </div>
-
-        <div ng-show="model.friend.email">
-            <h1>email</h1>
-            {{model.friend.email}}
-        </div>
-    </div>
-
-</div>
-
-<div class="container-fluid">
-    <h2>Reviews Participated</h2>
-    <div ng-repeat="review in model.reviews">
-        <div>
-            Place
-            <a ng-click="model.findBizById(review.bizId)"><h5>{{review.bizname}}</h5></a>
-        </div>
-        <div>
-            Review
-            <h5>{{review.description}}</h5>
-        </div>
-    </div>
-</div>
-
-<div>
-    <h1>Followers</h1>
-    <h2>Count: {{model.friend.followers.length}}</h2>
-    <div ng-repeat="user in model.friend.followers">
-        <div>
-            <a ng-click="model.findUserById(user.id)"><h5>{{user.username}}</h5></a>
-        </div>
-    </div>
-</div>
-
-<div>
-    <h1>Following</h1>
-    <h2>Count: {{model.friend.following.length}}</h2>
-    <div ng-repeat="user in model.friend.following">
-        <div>
-            <a ng-click="model.findUserById(user.id)"><h5>{{user.username}}</h5></a>
-        </div>
     </div>
 </div>
