@@ -7,7 +7,7 @@
         .module("NearBy")
         .controller("ActivityController", ActivityController);
 
-    function ActivityController(UserService,$location) {
+    function ActivityController(UserService,$location,ReviewService) {
         var vm = this;
         vm.findBizById = findBizById;
         vm.dislikePlace = dislikePlace;
@@ -19,6 +19,10 @@
                 .then(function (response) {
                     if (response.data) {
                         vm.user = response.data;
+                        ReviewService.findAllReviewsByUserId(vm.user._id)
+                            .then(function (response) {
+                                vm.reviews = response.data;
+                            })
                     }
                 });
         }

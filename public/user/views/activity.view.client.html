@@ -13,9 +13,20 @@
 
             </div>
         </div>
-
     </div>
+
+
     <div class="container col-xs-12 col-sm-6">
+        <h4>My Reviews</h4>
+        <div class="container-fluid" ng-repeat="review in model.reviews" >
+            <div class="well">
+                <a ng-click="model.findBizById(review.bizId)">
+                    <h3 class="below-flex">
+                        {{review.bizname}}
+                    </h3>
+                    <p class="bold">{{review.description}}</p></a>
+            </div>
+        </div>
     </div>
 
 </div>

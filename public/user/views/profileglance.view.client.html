@@ -2,8 +2,8 @@
 
     <div class="container">
         <h1>{{model.friend.username}}</h1>
-        <a ng-click="model.follow()" class="btn btn-primary">Follow</a>
-        <!--<a ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>-->
+        <a ng-hide="model.isFollowing" ng-click="model.follow()" class="btn btn-primary">Follow</a>
+        <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>
     </div>
 
     <div class="container">
@@ -46,6 +46,7 @@
 
 <div>
     <h1>Followers</h1>
+    <h2>Count: {{model.friend.followers.length}}</h2>
     <div ng-repeat="user in model.friend.followers">
         <div>
             <a ng-click="model.findUserById(user.id)"><h5>{{user.username}}</h5></a>
@@ -55,6 +56,7 @@
 
 <div>
     <h1>Following</h1>
+    <h2>Count: {{model.friend.following.length}}</h2>
     <div ng-repeat="user in model.friend.following">
         <div>
             <a ng-click="model.findUserById(user.id)"><h5>{{user.username}}</h5></a>
