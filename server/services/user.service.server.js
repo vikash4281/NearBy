@@ -264,7 +264,7 @@ module.exports = function (app, model) {
                     done(null, user);
                 } else {
                     var user = {
-                        username: profile.emails[0].value,
+                        username: profile.name.givenName,
                         firstName: profile.name.givenName,
                         lastName:  profile.name.familyName,
                         email:     profile.emails[0].value,
