@@ -6,7 +6,7 @@
     angular.module("NearBy")
         .controller("BizController",BizController);
 
-    function BizController($location,$routeParams,BizService,SearchService,UserService) {
+    function BizController($location,$routeParams,BizService,SearchService,UserService,ReviewService) {
         var vm = this;
         vm.bizid = $routeParams.bizid;
         vm.findBizById = findBizById;
@@ -14,6 +14,8 @@
         vm.goback = goback;
         vm.likePlace = likePlace;
         vm.dislikePlace = dislikePlace;
+        vm.addReview = addReview;
+        vm.findUserById = findUserById;
         init();
 
         function init() {
@@ -42,6 +44,10 @@
                         }
                     }
                 });
+            ReviewService.findAllReviewsByBizId(vm.bizid)
+                .then(function (response) {
+                    vm.reviews = response.data;
+                })
 
         }
 
@@ -91,6 +97,21 @@
                 });
         }
 
+        function addReview(review) {
+            review.userId = vm.user._id;
+            review.username = vm.user.username;
+            review.bizId = vm.biz.id;
+            review.bizname = vm.biz.name;
+            ReviewService.addReview(review)
+                .then(function () {
+                    vm.message = "Review added"
+                })
+            init();
+        }
+
+        function findUserById(id) {
+            $location.url('profile/'+id);
+        }
 
     }
 })();

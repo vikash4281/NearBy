@@ -70,18 +70,51 @@
              </div>
         </div>
     </div>
-    <!--<div>-->
-        <!--<h4>-->
-            <!--<span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp{{model.biz.description}}-->
-        <!--</h4>-->
-    <!--<a href="{{model.biz.canonicalUrl}}" target=_blank> <h3>More in Detail</h3> </a>-->
-    <!--</div>-->
-    <div class="row example">
 
-        <h1>
-            Reviews
-        </h1>
+    <div class="col-sm-6 panel-body">
+        <div class="panel-heading">
+            <h1>Reviews</h1>
+        </div>
+        <div class="well" ng-show="model.user._id">
+            <h3>Write Review</h3>
+            <form>
+                <div class="form-group">
+                    <textarea ng-model="model.review.description"
+                                          rows="3"
+                                          placeholder="Describe your experience"
+                                          class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <a ng-click="model.addReview(model.review)" class="btn btn-success">
+                        Submit
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="well" ng-hide="model.user._id">
+            <h3>Write Review</h3>
+            <form>
+                <div class="form-group">
+                    <textarea ng-model="model.review.description"
+                              rows="3"
+                              placeholder="Describe your experience"
+                              class="form-control"
+                              disabled="disabled"></textarea>
+                </div>
+                <div class="form-group">
+                    Please login to write a review
+                </div>
+            </form>
+        </div>
+        <div ng-repeat="review in model.reviews">
+            <div>
+                <a ng-click="model.findUserById(review.userId)"><span class="glyphicon glyphicon-user">{{review.username}}</span></a>
+                <h4>{{review.title}}</h4>
+                <h6>{{review.description}}</h6>
+            </div>
+        </div>
     </div>
+
     <div class="map">
         <ng-map center="[{{model.lat}},{{model.lng}}]">
              <marker position="[{{model.lat}},{{model.lng}}]"> </marker>

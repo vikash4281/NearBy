@@ -51,6 +51,14 @@
                     checkLoggedIn: checkLoggedIn
                 }
             })
+            .when("/profile/:userId",{
+                templateUrl: "user/views/profileglance.view.client.html",
+                controller: "ProfileGlanceController",
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
+            })
             .when("/admin", {
                 templateUrl: "user/views/admin.view.client.html",
                 controller: "AdminController",

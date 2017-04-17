@@ -18,7 +18,8 @@
             findAllUsers: findAllUsers,
             deleteUserById: deleteUserById,
             likePlace: likePlace,
-            dislikePlace: dislikePlace
+            dislikePlace: dislikePlace,
+            findUserById: findUserById
         };
         return api;
 
@@ -48,6 +49,10 @@
 
         function getProfile() {
             return $http.get("/api/user/"+$rootScope.currentUser._id);
+        }
+
+        function findUserById(userId) {
+            return $http.get("/api/user/"+userId);
         }
 
         function findAllUsers() {

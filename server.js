@@ -16,10 +16,11 @@ var db = mongoose.connect(connectionString);
 
 app.use(bodyParser.json());// for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));// for parsing application/x-www-form-urlencoded
-app.use(
-    session({ secret: process.env.PASSPORT_SECRET, // some secret
-        resave: true,
-        saveUninitialized: true}));
+app.use(session({
+    secret: process.env.PASSPORT_SECRET, // some secret
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());

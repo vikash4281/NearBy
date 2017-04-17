@@ -11,6 +11,8 @@ module.exports = function(mongoose) {
         lastName: String,
         email: String,
         likes : [{id: String, name: String, category: String}],
+        followers: [{id: String,username: String}],
+        following: [{id: String,username: String}],
         google: {
             id: String
         },
