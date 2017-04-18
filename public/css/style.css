@@ -5,9 +5,9 @@ body{
 #address{
     text-align: center;
 }
-#address-1{
-    line-height: 5px
-}
+/*#address-1{*/
+    /*line-height: 5px*/
+/*}*/
 #googleMap{
     height: 400px;
     width: 500px;
@@ -17,6 +17,9 @@ body{
 .addressadjust{
     margin-bottom: 0px;
 
+}
+.flexslider-container{
+    height: 600px;
 }
 
 #bizname{
@@ -133,9 +136,15 @@ header .container{
 }
 
 @media (max-width: 768px) {
+    .flexslider-container{
+        height: 250px;
+    }
     .example{
         padding-right: 80px;
         padding-left: 5px;
+    }
+    .review-pad{
+        padding-right: 20px;
     }
     .padding-1{
         padding-right: 15px;
@@ -229,16 +238,23 @@ text-align: center;
     border-bottom-style: solid;
     border-bottom-color:rgb(238, 238, 238);
 }
-#fbi{
+.yml-feed{
+    color: crimson;
+    border-bottom: 1px solid #eee;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color:rgb(238, 238, 238);
+}
+.fbi{
     color:crimson
 
 }
-.flex-control-nav {
-    width: 100%;
-    position: absolute;
-    bottom: 100px;
-    text-align: center;
-}
+/*.flex-control-nav {*/
+    /*width: 100%;*/
+    /*position: absolute;*/
+    /*bottom: 100px;*/
+    /*text-align: center;*/
+/*}*/
 .red {
     color: crimson;
 }

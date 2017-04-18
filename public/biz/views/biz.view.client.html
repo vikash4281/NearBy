@@ -94,7 +94,7 @@
 
 
         <div class="container col-xs-12 col-sm-4">
-            <h2 class="yml">News Feed</h2>
+            <h2 class="yml-feed">News Feed</h2>
             <div class="extend-4">
                 <div ng-repeat="feed in model.newsfeed" ng-show="model.user._id">
                     <h5>{{feed.username}} gave a review on {{feed.bizname}}</h5>
@@ -107,7 +107,7 @@
 
 
 
-    <div class="row">
+    <div class="row review-pad">
         <div class="col-xs-12 col-sm-8 ">
             <h2 class="yml">User Reviews</h2>
             <h8>&nbsp;</h8>
@@ -121,7 +121,7 @@
 
                         <div class="media-body">
 
-                            <h4 class="media-heading">
+                            <h4 class="media-heading fbi">
                                 <a ng-click="model.findUserById(review.userId)">{{review.username}}</a>
                                 <span ng-click="model.deleteReview(review._id)"
                                       class="glyphicon glyphicon-remove pull-right"
@@ -145,7 +145,7 @@
                     <div class="media">
                         <div class="media-body">
                             <a ng-click="model.findBizById(biz.id)">
-                                <h4 class="media-heading" id="fbi">{{biz.name| limitTo:25}}...</h4></a>
+                                <h4 class="media-heading fbi">{{biz.name| limitTo:25}}...</h4></a>
                             <p>{{biz.location.formattedAddress[0]}},
                                 {{biz.location.formattedAddress[1]}}
                                 {{biz.location.formattedAddress[2]}}</p>
