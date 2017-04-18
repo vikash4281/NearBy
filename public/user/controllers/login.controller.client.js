@@ -34,7 +34,7 @@
                     function(response)
                     {
                         UserService.setCurrentUser(response.data);
-                        $location.url("/profile");
+                        $location.url("/bizsearch");
                     },
                     function(err) {
                         vm.error = err;
