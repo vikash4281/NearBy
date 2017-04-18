@@ -44,14 +44,14 @@
                                 break
                             }
                         }
-                        vm.newsfeed = {};
+                        var ids = [];
                         for(var i in vm.user.following){
-                            ReviewService.findAllReviewsByUserId(vm.user.following[i].id)
-                                .then(function (response) {
-                                    var reviews = response.data;
-                                    angular.extend(vm.newsfeed,reviews);
-                                })
+                            ids.push(vm.user.following[i].id);
                         }
+                        ReviewService.findAllReviewsByUserIds(ids)
+                            .then(function (response) {
+                                vm.newsfeed = response.data;
+                            });
                     }
                 });
             ReviewService.findAllReviewsByBizId(vm.bizid)

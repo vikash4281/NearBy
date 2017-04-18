@@ -10,7 +10,8 @@ module.exports = function () {
         findAllReviewsByUserId:findAllReviewsByUserId,
         editReview:editReview,
         deleteReview:deleteReview,
-        findReviews:findReviews
+        findReviews:findReviews,
+        findAllReviewsByUserIds: findAllReviewsByUserIds
     };
 
     var mongoose = require('mongoose');
@@ -25,11 +26,11 @@ module.exports = function () {
     }
 
     function findAllReviewsByBizId(bizId) {
-        return ReviewModel.find({bizId: bizId});
+        return ReviewModel.find({bizId: bizId}).sort({"dateCreated": -1});
     }
 
     function findAllReviewsByUserId(userId) {
-        return ReviewModel.find({userId: userId});
+        return ReviewModel.find({userId: userId}).sort({"dateCreated": -1});
     }
 
     function editReview(reviewId,reviewObj) {
@@ -44,4 +45,7 @@ module.exports = function () {
         return ReviewModel.find();
     }
 
+    function findAllReviewsByUserIds(userIds) {
+        return ReviewModel.find({userId: {$in: userIds}}).sort({"dateCreated": -1});
+    }
 };

@@ -14,7 +14,8 @@
             deleteReview:deleteReview,
             findAllReviews:findAllReviews,
             findAllReviewsByBizId:findAllReviewsByBizId,
-            findAllReviewsByUserId:findAllReviewsByUserId
+            findAllReviewsByUserId:findAllReviewsByUserId,
+            findAllReviewsByUserIds: findAllReviewsByUserIds
         };
         return api;
 
@@ -40,6 +41,11 @@
 
         function findAllReviews() {
             return $http.get("/api/reviews");
+        }
+
+        function findAllReviewsByUserIds(userIds) {
+            var strids = userIds.toString();
+            return $http.get("/api/multipleuserreviews/"+strids);
         }
     }
 })();

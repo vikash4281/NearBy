@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="container col-xs-12 col-sm-6">
-        <h6>&nbsp</h6>
+        <h5>&nbsp</h5>
         <div ng-show="model.user.likes.length == 0" class="alert alert-info container-fluid" role="alert">
             You haven't saved any favorite places yet!!!
         </div>
@@ -28,11 +28,10 @@
         <h1 ng-show="model.reviews.length > 0">My Reviews</h1>
         <div class="container-fluid" ng-repeat="review in model.reviews" >
             <div class="well">
+                <a ng-click="model.findBizById(review.bizId)">
                     <h3 class="below-flex">
-                        <a ng-click="model.findBizById(review.bizId)">
-                        {{review.bizname}}</a>
-                        <span ng-click="model.deleteReview(review._id)" class="glyphicon glyphicon-remove pull-right" ng-show="review.userId == model.user._id || model.user.role == 'admin'"></span>
-                    </h3>
+                        {{review.bizname}}
+                    </h3></a>
                     <p class="bold">{{review.description}}</p>
             </div>
         </div>

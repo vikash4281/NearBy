@@ -10,6 +10,7 @@ module.exports = function (app, model) {
     app.get("/api/biz/reviews/:bizId",findAllReviewsByBizId);
     app.get("/api/user/reviews/:userId",findAllReviewsByUserId);
     app.get("/api/reviews",findAllReviews);
+    app.get("/api/multipleuserreviews/:ids",findAllReviewsByUserIds);
 
     function addReview(req, res) {
         var review = req.body;
@@ -80,15 +81,12 @@ module.exports = function (app, model) {
             });
     }
 
-    function predicateBy(prop){
-        return function(a,b){
-            if( a[prop] > b[prop]){
-                return 1;
-            }else if( a[prop] < b[prop] ){
-                return -1;
-            }
-            return 0;
-        }
+    function findAllReviewsByUserIds(req,res) {
+        var userIds = req.params.ids.split(',');
+        ReviewModel.findAllReviewsByUserIds(userIds)
+            .then(function (reviews) {
+                res.json(reviews);
+            });
     }
 
 };
