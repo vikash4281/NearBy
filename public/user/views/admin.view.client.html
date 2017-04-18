@@ -1,11 +1,10 @@
 <div class="container example">
-    <h2 class="page-header">Admin</h2>
-    <h4>Users</h4>
+    <h2 class="page-header">Users</h2>
     <div class="table-responsive">
         <table class="table table-striped table-hover">
             <tbody>
             <tr ng-repeat="user in model.users">
-                <td>{{user.username}}</td>
+                <td><a ng-click="model.findUserById(user._id)">{{user.username}}</a></a></td>
                 <td>&nbsp</td>
                 <td>&nbsp</td>
                 <td class="nowrap">

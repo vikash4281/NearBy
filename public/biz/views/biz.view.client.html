@@ -119,8 +119,9 @@
 
                         <div class="media-body">
                             <a ng-click="model.findUserById(review.userId)">
-                            <h4 class="media-heading">{{review.username}}</h4></a>
-                                <span class="glyphicon glyphicon-edit pull-right"></span>
+                            <h4 class="media-heading">{{review.username}}
+                                <span class="glyphicon glyphicon-edit pull-right" ng-show="review.userId == model.user._id || model.user.role == 'admin'"></span>
+                            </h4></a>
                             <p>{{review.description}}</p>
                         </div>
 

@@ -7,9 +7,10 @@
         .module("NearBy")
         .controller("AdminController", AdminController);
 
-    function AdminController(UserService) {
+    function AdminController(UserService,$location) {
         var vm = this;
         vm.removeUser = removeUser;
+        vm.findUserById = findUserById;
         init();
 
         function init() {
@@ -25,6 +26,10 @@
                     vm.success = "User deleted successfully";
                 });
             init();
+        }
+
+        function findUserById(id) {
+            $location.url('/profile/'+id);
         }
     }
 })();

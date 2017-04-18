@@ -1,7 +1,12 @@
 <div class="container-fluid example">
-<h1 class="example">Favourites</h1>
+
 <div class="row">
     <div class="container col-xs-12 col-sm-6">
+        <h6>&nbsp</h6>
+        <div ng-show="model.user.likes.length == 0" class="alert alert-info container-fluid" role="alert">
+            You haven't saved any favorite places yet!!!
+        </div>
+        <h1 class="example" ng-show="model.user.likes.length > 0">Favourites</h1>
         <div class="container-fluid" ng-repeat="place in model.user.likes" >
             <div class="well">
             <a ng-click="model.findBizById(place.id)">
@@ -15,9 +20,12 @@
         </div>
     </div>
 
-
     <div class="container col-xs-12 col-sm-6">
-        <h4>My Reviews</h4>
+        <h6>&nbsp</h6>
+        <div ng-show="model.reviews.length == 0" class="alert alert-info container-fluid" role="alert">
+            You haven't given any reviews yet!!!
+        </div>
+        <h1 ng-show="model.reviews.length > 0">My Reviews</h1>
         <div class="container-fluid" ng-repeat="review in model.reviews" >
             <div class="well">
                 <a ng-click="model.findBizById(review.bizId)">

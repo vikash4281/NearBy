@@ -127,7 +127,7 @@ header .container{
     .map{
         padding-bottom: 100px;}
     /*.well{*/
-        /*background-color: lightskyblue !important;*/
+    /*background-color: lightskyblue !important;*/
 }
 
 @media (max-width: 768px) {
@@ -193,6 +193,10 @@ header .container{
     }
 }
 
+/*.middle{*/
+/*padding-left: 320px;*/
+/*}*/
+
 #yml {
     color: mediumblue;
 }
@@ -215,11 +219,11 @@ header .container{
 
 }
 /*.oddtile{*/
-    /*background-color: lightgray !important;;*/
+/*background-color: lightgray !important;;*/
 /*}*/
 
 /*.eventile{*/
-    /*background-color: lightgoldenrodyellow !important;;*/
+/*background-color: lightgoldenrodyellow !important;;*/
 /*}*/
 /*lightgray*/
 /*lightgoldenrodyellow*/
