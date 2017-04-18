@@ -245,6 +245,14 @@ text-align: center;
     border-bottom-style: solid;
     border-bottom-color:rgb(238, 238, 238);
 }
+.yml-feed-bl{
+    color: blue;
+    border-bottom: 1px solid #eee;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color:rgb(238, 238, 238);
+}
+
 .fbi{
     color:crimson
 
