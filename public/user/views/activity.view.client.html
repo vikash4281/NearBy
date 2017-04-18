@@ -28,11 +28,12 @@
         <h1 ng-show="model.reviews.length > 0">My Reviews</h1>
         <div class="container-fluid" ng-repeat="review in model.reviews" >
             <div class="well">
-                <a ng-click="model.findBizById(review.bizId)">
                     <h3 class="below-flex">
-                        {{review.bizname}}
+                        <a ng-click="model.findBizById(review.bizId)">
+                        {{review.bizname}}</a>
+                        <span ng-click="model.deleteReview(review._id)" class="glyphicon glyphicon-remove pull-right" ng-show="review.userId == model.user._id || model.user.role == 'admin'"></span>
                     </h3>
-                    <p class="bold">{{review.description}}</p></a>
+                    <p class="bold">{{review.description}}</p>
             </div>
         </div>
     </div>

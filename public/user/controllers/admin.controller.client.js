@@ -11,6 +11,7 @@
         var vm = this;
         vm.removeUser = removeUser;
         vm.findUserById = findUserById;
+        vm.setToAdmin = setToAdmin;
         init();
 
         function init() {
@@ -30,6 +31,14 @@
 
         function findUserById(id) {
             $location.url('/profile/'+id);
+        }
+
+        function setToAdmin(user) {
+            user.role = "admin";
+            UserService.updateUser(user._id,user)
+                .then(function (response) {
+                });
+            init()
         }
     }
 })();

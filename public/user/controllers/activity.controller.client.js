@@ -11,6 +11,7 @@
         var vm = this;
         vm.findBizById = findBizById;
         vm.dislikePlace = dislikePlace;
+        vm.deleteReview = deleteReview;
         init();
 
         function init() {
@@ -42,6 +43,13 @@
                 .then(function (response) {
                     init();
                 });
+        }
+
+        function deleteReview(reviewId) {
+            ReviewService.deleteReview(reviewId)
+                .then(function () {
+                });
+            init();
         }
 
     }
