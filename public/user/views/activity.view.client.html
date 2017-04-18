@@ -7,15 +7,17 @@
             You haven't saved any favorite places yet!!!
         </div>
         <h1 class="example" ng-show="model.user.likes.length > 0">Favourites</h1>
-        <div class="container-fluid" ng-repeat="place in model.user.likes" >
-            <div class="well">
-            <a ng-click="model.findBizById(place.id)">
-                <h3 class="below-flex">
-                    {{place.name}}
-                    <a ng-click="model.dislikePlace(place.id)"><i class="fa fa-star pull-right" aria-hidden="true"></i></a>
-                </h3>
-                <p class="bold">{{place.category}}</p></a>
+        <div class="extendmore">
+            <div class="container-fluid" ng-repeat="place in model.user.likes" >
+                <div class="well">
+                <a ng-click="model.findBizById(place.id)">
+                    <h3 class="below-flex">
+                        {{place.name}}
+                        <a ng-click="model.dislikePlace(place.id)"><i class="fa fa-star pull-right" aria-hidden="true"></i></a>
+                    </h3>
+                    <p class="bold">{{place.category}}</p></a>
 
+                </div>
             </div>
         </div>
     </div>
@@ -26,13 +28,17 @@
             You haven't given any reviews yet!!!
         </div>
         <h1 ng-show="model.reviews.length > 0">My Reviews</h1>
-        <div class="container-fluid" ng-repeat="review in model.reviews" >
-            <div class="well">
-                <a ng-click="model.findBizById(review.bizId)">
-                    <h3 class="below-flex">
-                        {{review.bizname}}
-                    </h3></a>
-                    <p class="bold">{{review.description}}</p>
+
+        <div class="extendmore">
+            <div class="container-fluid" ng-repeat="review in model.reviews" >
+                <div class="well">
+                        <h3 class="below-flex">
+                            <a ng-click="model.findBizById(review.bizId)">
+                            {{review.bizname}}</a>
+                            <span ng-click="model.deleteReview(review._id)" class="glyphicon glyphicon-remove pull-right" ng-show="review.userId == model.user._id || model.user.role == 'admin'"></span>
+                        </h3>
+                        <p class="bold">{{review.description}}</p>
+                </div>
             </div>
         </div>
     </div>

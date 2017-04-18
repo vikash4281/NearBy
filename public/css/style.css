@@ -90,7 +90,9 @@ header .container{
     padding-left: 10px;
     margin-bottom: 10px;
 }
-
+.adjust{
+    padding-top: 60px;
+}
 @media(min-width:768px) {
 
     header .intro-lead-in {
@@ -166,7 +168,7 @@ header .container{
 }
 .extendmore{
     overflow: auto;
-    height: 600px;
+    height: 475px;
 }
 .extendmore-1{
     overflow: auto;
@@ -175,6 +177,10 @@ header .container{
 .extendmore-2{
     overflow: auto;
     height: 205px;
+}
+.extend-4{
+    overflow: auto;
+    height: 375px;
 }
 .padding-1{
     padding-top: 15px;
@@ -216,8 +222,12 @@ text-align: center;
 
 }
 
-#yml {
+.yml {
     color: mediumblue;
+    border-bottom: 1px solid #eee;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color:rgb(238, 238, 238);
 }
 #fbi{
     color:crimson
