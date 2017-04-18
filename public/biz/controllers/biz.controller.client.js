@@ -44,6 +44,14 @@
                                 break
                             }
                         }
+                        vm.newsfeed = {};
+                        for(var i in vm.user.following){
+                            ReviewService.findAllReviewsByUserId(vm.user.following[i].id)
+                                .then(function (response) {
+                                    var reviews = response.data;
+                                    angular.extend(vm.newsfeed,reviews);
+                                })
+                        }
                     }
                 });
             ReviewService.findAllReviewsByBizId(vm.bizid)
@@ -121,5 +129,6 @@
                 });
             init();
         }
+
     }
 })();

@@ -54,6 +54,11 @@
         </div>
 
         <div class="container col-xs-12 col-sm-4">
+            <h2>News Feed</h2>
+            <div class="row" ng-repeat="feed in model.newsfeed" ng-show="model.user._id">
+                <h5>{{feed.username}} gave a review on {{feed.bizname}}</h5>
+                <p>{{feed.description}}</p>
+            </div>
             <h2 class="page-header" ng-show="model.bizs.length > 0" id="yml">You might also like</h2>
             <div class="extend">
                 <div  ng-repeat="biz in model.bizs">
