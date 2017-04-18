@@ -20,7 +20,8 @@
         init();
 
         function init() {
-            vm.review = {}
+            vm.review = {};
+            vm.newsfeed = [];
             vm.isLiked = false;
             $('[data-toggle="tooltip"]').tooltip();
             BizService.findBizById(vm.bizid)

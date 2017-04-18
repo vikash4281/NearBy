@@ -1,50 +1,100 @@
-<div class="col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-2 main w3-animate-opacity">
-    <h1 class="page-header example">Edit Profile</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-hidden-xs col-sm-4">
 
-    <div ng-show="model.message" class="alert alert-success" role="alert">{{model.message}}</div>
-    <div ng-show="model.error" class="alert alert-danger" role="alert">{{model.error}}</div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div ng-show="model.currentUser.username" class="container-fluid center">
+                <h1 class="middle">
+                    {{model.currentUser.username}}
+                </h1>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 padding-1">
+        </div>
 
-    <div class="form-horizontal example">
-        <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-10">
-                <input ng-model="model.currentUser.username" type="text"
-                       class="form-control" id="username" placeholder="Username">
+    </div>
+    <div class="row example">
+        <div class="col-xs-12 col-sm-4">
+            <h5>&nbsp;</h5>
+            <h3>Followers {{model.currentUser.followers.length}}</h3>
+            <div class="extendmore-2">
+                <table class="table">
+                    <tbody ng-repeat="user in model.currentUser.followers">
+
+                    <tr>
+                        <td scope="row">{{user.username}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+
+                </table>
             </div>
-        </div>
-        <!--<div class="form-group">-->
-            <!--<label for="password" class="col-sm-2 control-label">Password</label>-->
-            <!--<div class="col-sm-10">-->
-                <!--<input ng-model="model.currentUser.password" type="password"-->
-                       <!--class="form-control" id="password" placeholder="Password">-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="form-group">
-            <label for="firstName" class="col-sm-2 control-label">First Name</label>
-            <div class="col-sm-10">
-                <input ng-model="model.currentUser.firstName" type="text"
-                       class="form-control" id="firstName" placeholder="First Name">
+
+            <div>
+                <h3>Following {{model.currentUser.following.length}}</h3>
+                <div class="extendmore-2">
+                    <table class="table">
+                        <tbody ng-repeat="user in model.currentUser.following">
+                        <tr>
+                            <td scope="row">{{user.username}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
         </div>
-        <div class="form-group">
-            <label for="lastName" class="col-sm-2 control-label">Last Name</label>
-            <div class="col-sm-10">
-                <input ng-model="model.currentUser.lastName" type="text"
-                       class="form-control" id="lastName" placeholder="Last Name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-                <input ng-model="model.currentUser.email" type="email"
-                       class="form-control" id="email" placeholder="Email">
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button ng-click="model.update(model.currentUser)"
-                        class="btn btn-primary btn-block">Update</button>
+        <div class="col-sm-8 main w3-animate-opacity">
+            <h1 class="page-header example">Edit Profile</h1>
+
+            <div ng-show="model.message" class="alert alert-success" role="alert">{{model.message}}</div>
+            <div ng-show="model.error" class="alert alert-danger" role="alert">{{model.error}}</div>
+
+            <div class="form-horizontal example">
+                <div class="form-group">
+                    <label for="username" class="col-sm-2 control-label">Username</label>
+                    <div class="col-sm-10">
+                        <input ng-model="model.currentUser.username" type="text"
+                               class="form-control" id="username" placeholder="Username" readonly="readonly">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-2 control-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input ng-model="model.currentUser.firstName" type="text"
+                               class="form-control" id="firstName" placeholder="First Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input ng-model="model.currentUser.lastName" type="text"
+                               class="form-control" id="lastName" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input ng-model="model.currentUser.email" type="email"
+                               class="form-control" id="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button ng-click="model.update(model.currentUser)"
+                                class="btn btn-primary btn-block">Update</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
+
+

@@ -9,7 +9,7 @@
                     <a class="btn btn-success" ng-click="model.setToAdmin(user)" ng-show="user.role == 'user'">Enable Admin</a>
                 </td>
                 <td class="nowrap">
-                    <button ng-click="model.removeUser(user._id)"
+                    <button ng-click="model.removeUser(user._id)" ng-hide="model.currentUser._id == user._id"
                             class="btn btn-danger pull-right">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>

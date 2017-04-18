@@ -40,10 +40,6 @@
                 vm.error = "Please provide a username";
                 return;
             }
-            // if (!user.password) {
-            //     vm.error = "Please provide a password";
-            //     return;
-            // }
             if (!user.email) {
                 vm.error = "Please provide a valid email";
                 return;

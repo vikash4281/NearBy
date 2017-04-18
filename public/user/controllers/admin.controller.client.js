@@ -15,6 +15,10 @@
         init();
 
         function init() {
+            UserService.getCurrentUser()
+                .then(function (response) {
+                   vm.currentUser = response.data;
+                });
             UserService.findAllUsers()
                 .then(function (response) {
                     vm.users = response.data;

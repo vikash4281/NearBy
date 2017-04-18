@@ -13,7 +13,7 @@
         <div class="col-xs-12 col-sm-4 padding-1">
             <div class="middle">
                 <a ng-hide="model.isFollowing || model.friend._id == model.currentUser._id" ng-click="model.follow()" class="btn btn-primary">Follow</a>
-                <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>
+                <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-warning">Unfollow</a>
             </div>
         </div>
 
@@ -77,15 +77,30 @@
                 </div>
 
         </div>
+        <!--<div class="col-xs-12 col-sm-4">-->
+            <!--<p>&nbsp</p>-->
+            <!--<div class="container-fluid">-->
+                <!--<h2>Reviews Participated</h2>-->
+                <!--<div class="extendmore-1">-->
+                    <!--<div ng-repeat="review in model.reviews">-->
+                        <!--<div class="well ">-->
+                            <!--<a ng-click="model.findBizById(review.bizId)"><h4>{{review.bizname}}</h4></a>-->
+                            <!--<h6>{{review.description}}</h6>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
         <div class="col-xs-12 col-sm-4">
             <p>&nbsp</p>
             <div class="container-fluid">
-                <h2>Reviews Participated</h2>
+                <h2>Favourite Locations</h2>
                 <div class="extendmore-1">
-                    <div ng-repeat="review in model.reviews">
+                    <div ng-repeat="like in model.friend.likes">
                         <div class="well ">
-                            <a ng-click="model.findBizById(review.bizId)"><h4>{{review.bizname}}</h4></a>
-                            <h6>{{review.description}}</h6>
+                            <a ng-click="model.findBizById(like.id)"><h4>{{like.name}}</h4></a>
+                            <h6>{{like.category}}</h6>
                         </div>
                     </div>
                 </div>

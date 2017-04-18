@@ -2,7 +2,11 @@
  * Created by vyshaalnarayanam on 4/16/17.
  */
 
-module.exports = function () {
+module.exports = function (ReviewModel) {
+
+    var mongoose = require('mongoose');
+    var ReviewSchema = require('./review.schema.server')();
+    var ReviewModel = mongoose.model('ReviewModel', ReviewSchema);
 
     var api = {
         addReview:addReview,
@@ -10,15 +14,10 @@ module.exports = function () {
         findAllReviewsByUserId:findAllReviewsByUserId,
         editReview:editReview,
         deleteReview:deleteReview,
+        removeAllReviewsByUserId: removeAllReviewsByUserId,
         findReviews:findReviews,
         findAllReviewsByUserIds: findAllReviewsByUserIds
     };
-
-    var mongoose = require('mongoose');
-
-    var ReviewSchema = require('./review.schema.server')();
-    var ReviewModel = mongoose.model('ReviewModel', ReviewSchema);
-
     return api;
 
     function addReview(review) {
@@ -39,6 +38,10 @@ module.exports = function () {
 
     function deleteReview(reviewId) {
         return ReviewModel.remove({_id: reviewId});
+    }
+
+    function removeAllReviewsByUserId(userId) {
+        return ReviewModel.remove({userId: userId});
     }
 
     function findReviews() {

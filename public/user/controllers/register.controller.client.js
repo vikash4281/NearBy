@@ -36,28 +36,25 @@
             }
             vm.user.roles = ["user"];
 
-            UserService
-                .register(vm.user)
-                .then(
-                    function (response) {
-                        var user = response.data;
-                        if (user != null) {
-                            UserService.setCurrentUser(user);
-                            if(user.username == "admin"){
-                                user.role = "admin";
-                                UserService.updateUser(user._id,user)
-                                    .then(function (response) {
-                                    });
-                            }
-                            $location.url("/bizsearch");
-                        }
-                        else
-                            vm.message = "Username already exists.";
-                    },
-                    function (err) {
-                        vm.error = err;
-                    }
-                );
+
+           UserService
+               .register(vm.user)
+               .then(function (response) {
+                       var user = response.data;
+                       if (user != null) {
+                           UserService.setCurrentUser(user);
+                           if(user.username == "admin"){
+                               user.role = "admin";
+                               UserService.updateUser(user._id,user)
+                                   .then(function (response) {
+                                   });
+                           }
+                           $location.url("/bizsearch");
+                       }
+                   },
+               function () {
+                   vm.message = "Username already exists";
+               });
         }
     }
 })();

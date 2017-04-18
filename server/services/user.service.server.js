@@ -28,6 +28,7 @@ module.exports = function (app, model) {
     passport.deserializeUser(deserializeUser);
 
     var UserModel = model.UserModel;
+    var ReviewModel = model.ReviewModel;
     var auth = authorized;
 
     app.post('/api/login',passport.authenticate('local'),login);
@@ -66,19 +67,26 @@ module.exports = function (app, model) {
     function register(req, res) {
         var user = req.body;
         user.password = bcrypt.hashSync(user.password);
-        UserModel.createUser(user)
-            .then(function (user){
-                if(user){
-                    req.login(user, function (err) {
-                        if(err){
-                            res.status(500).send(err);
-                        }
-                        else{
-                            res.json(user);
-                        }
-                    });
+        UserModel.findUserByUsername(user.username)
+            .then(function (response) {
+                if(response != null){
+                    res.sendStatus(500);
+                }else{
+                    UserModel.createUser(user)
+                        .then(function (user){
+                            if(user){
+                                req.login(user, function (err) {
+                                    if(err){
+                                        res.status(500).send(err);
+                                    }
+                                    else{
+                                        res.json(user);
+                                    }
+                                });
+                            }
+                        });
                 }
-            });
+            })
     }
 
     function findUserByCredentials(req, res){
@@ -155,7 +163,10 @@ module.exports = function (app, model) {
         UserModel
             .deleteUser(userId)
             .then(function() {
-                res.sendStatus(200);
+                ReviewModel.removeAllReviewsByUserId(userId)
+                    .then(function () {
+                        res.sendStatus(200);
+                    })
             },function(err) {
                 res.sendStatus(500).send(err);
             });

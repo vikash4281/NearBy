@@ -2,12 +2,11 @@
  * Created by vyshaalnarayanam on 4/13/17.
  */
 
-module.exports = function(db, mongoose, UserModel) {
+module.exports = function(UserModel) {
 
     var mongoose = require('mongoose');
     var UserSchema = require('./user.schema.server')();
     var UserModel = mongoose.model('UserModel', UserSchema);
-
 
     var api = {
         createUser: createUser,
@@ -43,7 +42,9 @@ module.exports = function(db, mongoose, UserModel) {
     }
 
     function deleteUser(userId) {
-        return UserModel.remove({_id: userId});
+        return UserModel.remove({_id: userId}).then(function () {
+
+        });
     }
 
     function findUserByGoogleId(googleId) {
