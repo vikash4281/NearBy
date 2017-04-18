@@ -1,19 +1,31 @@
 <div class="container-fluid">
-
     <div class="row">
+        <div class="col-hidden-xs col-sm-4">
+
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div ng-show="model.friend.username" class="container-fluid center">
+                <h1 class="middle">
+                    {{model.friend.username}}
+                </h1>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 padding-1">
+            <div class="middle">
+                <a ng-hide="model.isFollowing" ng-click="model.follow()" class="btn btn-primary">Follow</a>
+                <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row example">
         <div class="col-xs-12 col-sm-4">
             <h5>&nbsp;</h5>
-            <div>
+            <h3>Followers {{model.friend.followers.length}}</h3>
+            <div class="extendmore-2">
                 <table class="table">
-                    <thead class="thead-inverse">
-                    <tr>
-                        <th><h3>Followers</h3></th>
-                        <th></th>
-                        <th><h3>{{model.friend.followers.length}}</h3></th>
-                        <th></th>
-                    </tr>
-                    </thead>
                     <tbody ng-repeat="user in model.friend.followers">
+
                     <tr>
                         <td scope="row">{{user.username}}</td>
                         <td></td>
@@ -21,47 +33,35 @@
                         <td></td>
                     </tr>
                     </tbody>
+
                 </table>
             </div>
 
             <div>
-                <table class="table">
-                    <thead class="thead-inverse">
-                    <tr>
-                        <th><h3>Following</h3></th>
-                        <th></th>
-                        <th><h3>{{model.friend.following.length}}</h3></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody ng-repeat="user in model.friend.following">
-                    <tr>
-                        <td scope="row">{{user.username}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
+                <h3>Following {{model.friend.following.length}}</h3>
+                <div class="extendmore-2">
+                    <table class="table">
+                        <tbody ng-repeat="user in model.friend.following">
+                        <tr>
+                            <td scope="row">{{user.username}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>
         <div class="container-fluid col-xs-12 col-sm-4">
-            <h5>&nbsp</h5>
-            <div ng-show="model.friend.username" class="container-fluid">
-                <h1 class="middle">
-                    {{model.friend.username}}
-                    <div class="pull-right">
-                        <a ng-hide="model.isFollowing" ng-click="model.follow()" class="btn btn-primary">Follow</a>
-                        <a ng-show="model.isFollowing" ng-click="model.unfollow()" class="btn btn-primary">Unfollow</a>
-                    </div>
-                </h1>
-            </div>
+            <h6>&nbsp;</h6>
 
-            <div class="container">
                 <h6>&nbsp</h6>
+
                 <div ng-show="model.friend.username">
-                    <h4>Username: {{model.friend.username}}</h4>
+
+                    <h4 >Username: {{model.friend.username}}</h4>
                 </div>
 
                 <div ng-show="model.friend.firstName">
@@ -75,9 +75,9 @@
                 <div ng-show="model.friend.email">
                     <h4>Email: {{model.friend.email}}</h4>
                 </div>
-            </div>
+
         </div>
-        <div class="col-xs-12 col-sm-4 example">
+        <div class="col-xs-12 col-sm-4">
             <p>&nbsp</p>
             <div class="container-fluid">
                 <h2>Reviews Participated</h2>
