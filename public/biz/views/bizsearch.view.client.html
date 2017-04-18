@@ -34,7 +34,7 @@
             <h4>&nbsp</h4>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 example">
-                        <h2 ng-show="model.bizs.length > 0">Places near you</h2>
+                        <h2 ng-show="model.bizs.length > 0" class="yml-feed-bl">Places near you</h2>
                         <div class="media" ng-repeat="biz in model.bizs">
                                 <div class="media-body well" ng-class-odd="'oddtile'" ng-class-even="'eventile'">
                                     <div class="row">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="hidden-xs col-sm-6">
-                        <h2 ng-show="model.trendingbizs.length > 0">Popular Places</h2>
+                        <h2 ng-show="model.trendingbizs.length > 0" class="yml-feed-bl">Popular Places</h2>
                         <div class="extendmore">
                             <div class="media" ng-repeat="biz in model.trendingbizs">
                                 <div class="media-body well">
