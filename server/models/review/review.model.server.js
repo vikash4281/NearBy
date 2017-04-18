@@ -37,7 +37,7 @@ module.exports = function () {
     }
 
     function deleteReview(reviewId) {
-        return ReviewModel.remove({_id:reviewId});
+        return ReviewModel.remove({_id: reviewId});
     }
 
     function findReviews() {

@@ -26,8 +26,8 @@
             return $http.put("/api/review", review);
         }
 
-        function deleteReview(review) {
-            return $http.delete("/api/review", review);
+        function deleteReview(reviewId) {
+            return $http.delete("/api/review/"+reviewId);
         }
 
         function findAllReviewsByBizId(bizId) {

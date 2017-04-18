@@ -6,7 +6,7 @@ module.exports = function (app, model) {
     var ReviewModel = model.ReviewModel;
     app.post("/api/review",addReview);
     app.put("/api/review",editReview);
-    app.delete("/api/review",deleteReview);
+    app.delete("/api/review/:reviewId",deleteReview);
     app.get("/api/biz/reviews/:bizId",findAllReviewsByBizId);
     app.get("/api/user/reviews/:userId",findAllReviewsByUserId);
     app.get("/api/reviews",findAllReviews);
@@ -37,8 +37,8 @@ module.exports = function (app, model) {
     }
 
     function deleteReview(req,res) {
-        var review_id = req.body._id;
-        ReviewModel.deleteReview(review_id)
+        var reviewId = req.params.reviewId;
+        ReviewModel.deleteReview(reviewId)
             .then(function (response) {
                 res.json(response);
 

@@ -16,9 +16,11 @@
         vm.dislikePlace = dislikePlace;
         vm.addReview = addReview;
         vm.findUserById = findUserById;
+        vm.deleteReview = deleteReview;
         init();
 
         function init() {
+            vm.review = {}
             vm.isLiked = false;
             $('[data-toggle="tooltip"]').tooltip();
             BizService.findBizById(vm.bizid)
@@ -105,7 +107,7 @@
             ReviewService.addReview(review)
                 .then(function () {
                     vm.message = "Review added"
-                })
+                });
             init();
         }
 
@@ -113,5 +115,11 @@
             $location.url('profile/'+id);
         }
 
+        function deleteReview(reviewId) {
+            ReviewService.deleteReview(reviewId)
+                .then(function () {
+                });
+            init();
+        }
     }
 })();

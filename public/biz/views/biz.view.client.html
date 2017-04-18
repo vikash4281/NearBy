@@ -118,10 +118,12 @@
                         </div>
 
                         <div class="media-body">
-                            <a ng-click="model.findUserById(review.userId)">
-                            <h4 class="media-heading">{{review.username}}
+
+                            <h4 class="media-heading">
+                                <a ng-click="model.findUserById(review.userId)">{{review.username}}</a>
+                                <span ng-click="model.deleteReview(review._id)" class="glyphicon glyphicon-remove pull-right" ng-show="review.userId == model.user._id || model.user.role == 'admin'"></span>
                                 <span class="glyphicon glyphicon-edit pull-right" ng-show="review.userId == model.user._id || model.user.role == 'admin'"></span>
-                            </h4></a>
+                            </h4>
                             <p>{{review.description}}</p>
                         </div>
 
