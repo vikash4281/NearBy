@@ -5,7 +5,7 @@
         </div>
         <div class="col-xs-12 col-sm-4">
             <div ng-show="model.currentUser.username" class="container-fluid center">
-                <h1 class="middle">
+                <h1 class="middle red">
                     {{model.currentUser.username}}
                 </h1>
             </div>
@@ -17,7 +17,7 @@
     <div class="row example">
         <div class="col-xs-12 col-sm-4">
             <h5>&nbsp;</h5>
-            <h3>Followers {{model.currentUser.followers.length}}</h3>
+            <h3 class="red">Followers - {{model.currentUser.followers.length}}</h3>
             <div class="extendmore-2">
                 <table class="table">
                     <tbody ng-repeat="user in model.currentUser.followers">
@@ -34,7 +34,7 @@
             </div>
 
             <div>
-                <h3>Following {{model.currentUser.following.length}}</h3>
+                <h3 class="red">Following {{model.currentUser.following.length}}</h3>
                 <div class="extendmore-2">
                     <table class="table">
                         <tbody ng-repeat="user in model.currentUser.following">
@@ -51,7 +51,7 @@
 
         </div>
         <div class="col-sm-8 main w3-animate-opacity">
-            <h1 class="page-header example">Edit Profile</h1>
+            <h1 class="page-header example yml-feed-bl">Edit Profile</h1>
 
             <div ng-show="model.message" class="alert alert-success" role="alert">{{model.message}}</div>
             <div ng-show="model.error" class="alert alert-danger" role="alert">{{model.error}}</div>
