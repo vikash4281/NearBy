@@ -11,6 +11,7 @@
     function ProfileController(UserService, $routeParams, $location) {
         var vm = this;
         vm.update = update;
+        vm.unfollow = unfollow;
         init();
 
         function init() {
@@ -55,6 +56,30 @@
                     else
                         vm.error = "Unable to update the user";
                 });
+        }
+
+        function unfollow(otherUser){
+            UserService.getCurrentUser().then(function (response) {
+                vm.currentUser = response.data;
+                UserService.findUserById(otherUser.id).then(function (response) {
+                    vm.otherUser = response.data;
+                    for(var i in vm.otherUser.followers){
+                        if(vm.otherUser.followers[i].id==vm.currentUser._id){
+                            vm.otherUser.followers.splice(i,1);
+                            break;
+                        }
+                    }
+                    UserService.updateUser(vm.otherUser._id,vm.otherUser).then();
+                    for(var i in vm.currentUser.following){
+                        if(vm.currentUser.following[i].id == vm.otherUser._id){
+                            vm.currentUser.following.splice(i,1);
+                            break;
+                        }
+                    }
+                    UserService.updateUser(vm.currentUser._id,vm.currentUser).then();
+                    init();
+                });
+            });
         }
 
     }

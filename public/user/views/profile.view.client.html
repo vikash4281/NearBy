@@ -21,10 +21,13 @@
                 <div ng-show="model.currentUser.following.length == 0">
                     <h3 class="red">Following</h3>
                     <div class="alert alert-info">
-                        <p>{{model.currentUser.username}} isn't following anyone yet</p>
+                        <p>You aren't following anyone yet</p>
                     </div>
                 </div>
-                <h3 class="red" ng-show="model.currentUser.following.length > 0">Following -  {{model.currentUser.following.length}}</h3>
+                <h3 class="red" ng-show="model.currentUser.following.length > 0">
+                    <span>Following <p class="pull-right">{{model.currentUser.following.length}}</p>
+                    </span>
+                </h3>
                 <div class="extendmore-2">
                     <table class="table">
                         <tbody ng-repeat="user in model.currentUser.following">
@@ -32,7 +35,11 @@
                             <td scope="row">{{user.username}}</td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <td>
+                                <a ng-click="model.unfollow(user)" class="pull-right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -43,11 +50,13 @@
             <div ng-show="model.currentUser.followers.length == 0">
                 <h3 class="red">Followers</h3>
                 <div class="alert alert-info">
-                    <p>{{model.currentUser.username}} doesn't have any followers yet</p>
+                    <p>You don't have any followers yet</p>
                 </div>
             </div>
-            <h3 class="red" ng-show="model.currentUser.followers.length > 0">Followers -  {{model.currentUser.followers.length}}</h3>
-
+            <h3 class="red" ng-show="model.currentUser.followers.length > 0">
+                    <span>Following <p class="pull-right">{{model.currentUser.followers.length}}</p>
+                    </span>
+            </h3>
             <div class="extendmore-2">
                 <table class="table">
                     <tbody ng-repeat="user in model.currentUser.followers">

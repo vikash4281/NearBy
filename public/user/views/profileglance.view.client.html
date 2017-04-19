@@ -29,7 +29,10 @@
                         <p>{{model.friend.username}} isn't following anyone yet</p>
                     </div>
                 </div>
-                <h3 ng-show="model.friend.following.length > 0">Following -  {{model.friend.following.length}}</h3>
+                <h3 class="red" ng-show="model.friend.following.length > 0">
+                    <span>Following <p class="pull-right">{{model.friend.following.length}}</p>
+                    </span>
+                </h3>
                 <div class="extendmore-2">
                     <table class="table">
                         <tbody ng-repeat="user in model.friend.following">
@@ -50,7 +53,10 @@
                     <p>{{model.friend.username}} doesn't have any followers yet</p>
                 </div>
             </div>
-            <h3 ng-show="model.friend.followers.length > 0">Followers -  {{model.friend.followers.length}}</h3>
+            <h3 class="red" ng-show="model.currentUser.followers.length > 0">
+                    <span>Following <p class="pull-right">{{model.friend.followers.length}}</p>
+                    </span>
+            </h3>
             <div class="extendmore-2">
                 <table class="table">
                     <tbody ng-repeat="user in model.friend.followers">
