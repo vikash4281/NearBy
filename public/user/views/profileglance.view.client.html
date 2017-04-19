@@ -1,3 +1,4 @@
+<p>&nbsp;</p>
 <div class="container-fluid">
     <div class="row">
         <div class="col-hidden-xs col-sm-4">
@@ -5,7 +6,7 @@
         </div>
         <div class="col-xs-12 col-sm-4">
             <div ng-show="model.friend.username" class="container-fluid center">
-                <h1 class="middle">
+                <h1 class="middle yml-feed-bl">
                     {{model.friend.username}}
                 </h1>
             </div>
@@ -24,7 +25,7 @@
 
             <div>
                 <div ng-show="model.friend.following.length == 0">
-                    <h3>Following</h3>
+                    <h3 class="red">Following</h3>
                     <div class="alert alert-info">
                         <p>{{model.friend.username}} isn't following anyone yet</p>
                     </div>
@@ -48,15 +49,16 @@
             </div>
 
             <div ng-show="model.friend.followers.length == 0">
-                <h3>Followers</h3>
+                <h3 class="red">Followers</h3>
                 <div class="alert alert-info">
                     <p>{{model.friend.username}} doesn't have any followers yet</p>
                 </div>
             </div>
-            <h3 class="red" ng-show="model.currentUser.followers.length > 0">
-                    <span>Following <p class="pull-right">{{model.friend.followers.length}}</p>
+            <h3 class="red" ng-show="model.friend.followers.length > 0">
+                    <span>Followers <p class="pull-right">{{model.friend.followers.length}}</p>
                     </span>
             </h3>
+
             <div class="extendmore-2">
                 <table class="table">
                     <tbody ng-repeat="user in model.friend.followers">
@@ -74,28 +76,29 @@
 
 
         </div>
-        <div class="container-fluid col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-4">
+            <div class="container-fluid">
             <h6>&nbsp;</h6>
 
                 <h6>&nbsp</h6>
 
                 <div ng-show="model.friend.username">
 
-                    <h4 >Username: {{model.friend.username}}</h4>
+                    <h3 class="yml-feed-bl">Username</h3> <h4>{{model.friend.username}}</h4>
                 </div>
-
+                <h6>&nbsp;</h6>
                 <div ng-show="model.friend.firstName">
-                    <h4>Firstname: {{model.friend.firstName}}</h4>
+                    <h3 class="yml-feed-bl">Firstname</h3><h4> {{model.friend.firstName}}</h4>
                 </div>
-
+                <h6>&nbsp;</h6>
                 <div ng-show="model.friend.lastName">
-                    <h4>Lastname: {{model.friend.lastName}}</h4>
+                    <h3 class="yml-feed-bl">Lastname</h3><h4> {{model.friend.lastName}}</h4>
                 </div>
-
+                <h6>&nbsp;</h6>
                 <div ng-show="model.friend.email">
-                    <h4>Email: {{model.friend.email}}</h4>
+                    <h3 class="yml-feed-bl">Email </h3><h4>{{model.friend.email}}</h4>
                 </div>
-
+            </div>
         </div>
         <!--<div class="col-xs-12 col-sm-4">-->
             <!--<p>&nbsp</p>-->
@@ -115,11 +118,11 @@
         <div class="col-xs-12 col-sm-4">
             <p>&nbsp</p>
             <div class="container-fluid">
-                <h2>Favourite Locations</h2>
+                <h2 class="yml-feed-bl">Favourite Locations</h2>
                 <div class="extendmore-1">
                     <div ng-repeat="like in model.friend.likes">
                         <div class="well ">
-                            <a ng-click="model.findBizById(like.id)"><h4>{{like.name}}</h4></a>
+                            <a ng-click="model.findBizById(like.id)"><h4 class="red">{{like.name}}</h4></a>
                             <h6>{{like.category}}</h6>
                         </div>
                     </div>
