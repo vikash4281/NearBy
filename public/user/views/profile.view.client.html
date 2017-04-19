@@ -17,6 +17,29 @@
     <div class="row example">
         <div class="col-xs-12 col-sm-4">
             <h5>&nbsp;</h5>
+            <div>
+                <div ng-show="model.currentUser.following.length == 0">
+                    <h3 class="red">Following</h3>
+                    <div class="alert alert-info">
+                        <p>{{model.currentUser.username}} isn't following anyone yet</p>
+                    </div>
+                </div>
+                <h3 class="red" ng-show="model.currentUser.following.length > 0">Following -  {{model.friend.following.length}}</h3>
+                <div class="extendmore-2">
+                    <table class="table">
+                        <tbody ng-repeat="user in model.currentUser.following">
+                        <tr>
+                            <td scope="row">{{user.username}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
             <div ng-show="model.currentUser.followers.length == 0">
                 <h3 class="red">Followers</h3>
                 <div class="alert alert-info">
@@ -40,27 +63,6 @@
                 </table>
             </div>
 
-            <div>
-                <div ng-show="model.currentUser.following.length == 0">
-                    <h3 class="red">Following</h3>
-                    <div class="alert alert-info">
-                        <p>{{model.currentUser.username}} isn't following anyone yet</p>
-                    </div>
-                </div>
-                <h3 class="red" ng-show="model.currentUser.following.length > 0">Following -  {{model.friend.following.length}}</h3>
-                <div class="extendmore-2">
-                    <table class="table">
-                        <tbody ng-repeat="user in model.currentUser.following">
-                        <tr>
-                            <td scope="row">{{user.username}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
         </div>
         <div class="col-sm-8 main w3-animate-opacity">

@@ -21,27 +21,6 @@
     <div class="row example">
         <div class="col-xs-12 col-sm-4">
             <h5>&nbsp;</h5>
-            <div ng-show="model.friend.followers.length == 0">
-                <h3>Followers</h3>
-                <div class="alert alert-info">
-                    <p>{{model.friend.username}} doesn't have any followers yet</p>
-                </div>
-            </div>
-            <h3 ng-show="model.friend.followers.length > 0">Followers -  {{model.friend.followers.length}}</h3>
-            <div class="extendmore-2">
-                <table class="table">
-                    <tbody ng-repeat="user in model.friend.followers">
-
-                    <tr>
-                        <td scope="row">{{user.username}}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-
-                </table>
-            </div>
 
             <div>
                 <div ng-show="model.friend.following.length == 0">
@@ -64,6 +43,29 @@
                     </table>
                 </div>
             </div>
+
+            <div ng-show="model.friend.followers.length == 0">
+                <h3>Followers</h3>
+                <div class="alert alert-info">
+                    <p>{{model.friend.username}} doesn't have any followers yet</p>
+                </div>
+            </div>
+            <h3 ng-show="model.friend.followers.length > 0">Followers -  {{model.friend.followers.length}}</h3>
+            <div class="extendmore-2">
+                <table class="table">
+                    <tbody ng-repeat="user in model.friend.followers">
+
+                    <tr>
+                        <td scope="row">{{user.username}}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
 
         </div>
         <div class="container-fluid col-xs-12 col-sm-4">
