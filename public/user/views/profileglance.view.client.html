@@ -6,7 +6,7 @@
         </div>
         <div class="col-xs-12 col-sm-4">
             <div ng-show="model.friend.username" class="container-fluid center">
-                <h1 class="middle yml-feed-bl">
+                <h1 class="middle yml red">
                     {{model.friend.username}}
                 </h1>
             </div>
@@ -25,13 +25,13 @@
 
             <div>
                 <div ng-show="model.friend.following.length == 0">
-                    <h3 class="red">Following</h3>
+                    <h3 class="yml-feed-bl">Following</h3>
                     <div class="alert alert-info">
                         <p>{{model.friend.username}} isn't following anyone yet</p>
                     </div>
                 </div>
                 <h3 class="red" ng-show="model.friend.following.length > 0">
-                    <span>Following <p class="pull-right">{{model.friend.following.length}}</p>
+                    <span class="blue">Following <p class="pull-right red">{{model.friend.following.length}}</p>
                     </span>
                 </h3>
                 <div class="extendmore-2">
@@ -49,13 +49,13 @@
             </div>
 
             <div ng-show="model.friend.followers.length == 0">
-                <h3 class="red">Followers</h3>
+                <h3 class="blue">Followers</h3>
                 <div class="alert alert-info">
                     <p>{{model.friend.username}} doesn't have any followers yet</p>
                 </div>
             </div>
             <h3 class="red" ng-show="model.friend.followers.length > 0">
-                    <span>Followers <p class="pull-right">{{model.friend.followers.length}}</p>
+                    <span class="blue">Followers <p class="pull-right red">{{model.friend.followers.length}}</p>
                     </span>
             </h3>
 

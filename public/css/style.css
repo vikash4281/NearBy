@@ -252,7 +252,9 @@ text-align: center;
     border-bottom-style: solid;
     border-bottom-color:rgb(238, 238, 238);
 }
-
+.blue{
+    color: blue;
+}
 .fbi{
     color:crimson
 
