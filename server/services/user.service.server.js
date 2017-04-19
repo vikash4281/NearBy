@@ -12,6 +12,9 @@ module.exports = function (app, model) {
         clientID     : process.env.GOOGLE_CLIENT_ID, // "672100439761-hbmorpc8vrh6qd189q81kgkooqag8d7k.apps.googleusercontent.com",
         clientSecret : process.env.GOOGLE_CLIENT_SECRET, // "tzx95TsPREe_7HAl-DvhM-bA",
         callbackURL  : process.env.GOOGLE_CALLBACK // "http://localhost:3000/google/callback"
+        // clientID     :  "672100439761-hbmorpc8vrh6qd189q81kgkooqag8d7k.apps.googleusercontent.com",
+        // clientSecret :  "tzx95TsPREe_7HAl-DvhM-bA",
+        // callbackURL  :  "http://localhost:3000/google/callback"
     };
 
     var FacebookStrategy = require('passport-facebook').Strategy;
@@ -19,6 +22,9 @@ module.exports = function (app, model) {
         clientID     : process.env.FACEBOOK_CLIENT_ID, // "1845497609050511",
         clientSecret : process.env.FACEBOOK_CLIENT_SECRET, // "5d539caa45a29a7c1a7cb47430d4a1d3",
         callbackURL  : process.env.FACEBOOK_CALLBACK // "http://localhost:3000/auth/facebook/callback"
+        // clientID     :  "1845497609050511",
+        // clientSecret :  "5d539caa45a29a7c1a7cb47430d4a1d3",
+        // callbackURL  :  "http://localhost:3000/auth/facebook/callback"
     };
     passport.use(new LocalStrategy(localStrategy));
     passport.use(new GoogleStrategy(googleConfig, googleStrategy));

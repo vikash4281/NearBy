@@ -107,8 +107,10 @@
             </div>
             <div class="extend-4">
                 <div ng-repeat="feed in model.newsfeed" ng-show="model.user._id">
-                    <h5>{{feed.username}} gave a review on {{feed.bizname}}</h5>
-                    <p>{{feed.description}}</p>
+                    <div class="well">
+                        <h5 class="red">{{feed.username}} gave a review on {{feed.bizname}}</h5>
+                        <p>{{feed.description}}</p>
+                    </div>
                 </div>
             </div>
 
