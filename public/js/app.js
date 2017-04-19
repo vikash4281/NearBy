@@ -4,4 +4,5 @@
 
 (function () {
     angular.module(["NearBy"],["ngRoute","ngMap","angular-flexslider","ngRating"]);
+
 })();

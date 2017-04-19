@@ -27,10 +27,10 @@
             </span>
             <span ng-hide="model.user._id">
                     <h1 class="page-header below-flex">{{model.biz.name}}
-                        <a ng-hide="model.isLiked" data-toggle="tooltip"
+                        <span><a ng-hide="model.isLiked" data-toggle="tooltip"
                            data-placement="top" title="Log in to save your favourite places"
-                           ng-disabled="!user._id">
-                        <i class="fa fa-star-o pull-right" aria-hidden="true"></i></a>
+                           ng-disabled="!user._id" class="pull-right">
+                        <i class="fa fa-star-o pull-right" aria-hidden="true"></i></a></span>
                     </h1>
             </span>
 
