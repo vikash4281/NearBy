@@ -24,7 +24,7 @@
                         <p>{{model.currentUser.username}} isn't following anyone yet</p>
                     </div>
                 </div>
-                <h3 class="red" ng-show="model.currentUser.following.length > 0">Following -  {{model.friend.following.length}}</h3>
+                <h3 class="red" ng-show="model.currentUser.following.length > 0">Following -  {{model.currentUser.following.length}}</h3>
                 <div class="extendmore-2">
                     <table class="table">
                         <tbody ng-repeat="user in model.currentUser.following">
