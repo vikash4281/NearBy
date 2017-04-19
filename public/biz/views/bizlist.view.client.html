@@ -18,8 +18,8 @@
         </div>
     </div>
 </div>
-<div ng-show="model.info" class="alert alert-info" role="alert">
-    {{model.info}}
+<div ng-show="model.bizs == null || model.bizs.length == 0" class="alert alert-info" role="alert">
+    "No results found!!! Please try searching with different inputs"
 </div>
 <div class="container-fluid">
         <h4>&nbsp</h4>

@@ -109,6 +109,11 @@
         }
 
         function addReview(review) {
+            if(review.description == null){
+                vm.error = "You can't submit an empty review";
+                init();
+                return;
+            }
             review.userId = vm.user._id;
             review.username = vm.user.username;
             review.bizId = vm.biz.id;

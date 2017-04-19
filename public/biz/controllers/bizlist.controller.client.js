@@ -18,9 +18,8 @@
             BizService.findBizs(vm.location,vm.place)
                 .then(function (response) {
                     vm.bizs = response.data.response.venues;
-                    if(vm.bizs.length == 0){
-                        vm.info = "No results found!!! Please try searching with different inputs"
-                    }
+                },function (error) {
+                    vm.bizs = [];
                 });
             BizService.findBizsToExploreByLocation(vm.location)
                 .then(function (response) {
