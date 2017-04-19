@@ -48,7 +48,6 @@
                     </div>
                 </div>
                 <h3 class="red" ng-show="model.currentUser.following.length > 0">Following -  {{model.friend.following.length}}</h3>
-                <h3 class="red">Following {{model.currentUser.following.length}}</h3>
                 <div class="extendmore-2">
                     <table class="table">
                         <tbody ng-repeat="user in model.currentUser.following">
@@ -65,7 +64,7 @@
 
         </div>
         <div class="col-sm-8 main w3-animate-opacity">
-            <h1 class="page-header example yml-feed-bl">Edit Profile</h1>
+            <h2 class="page-header example yml-feed-bl">Profile</h2>
 
             <div ng-show="model.message" class="alert alert-success" role="alert">{{model.message}}</div>
             <div ng-show="model.error" class="alert alert-danger" role="alert">{{model.error}}</div>
